@@ -1,5 +1,5 @@
 function  Ship() {
-  this.length = length;
+  this.length = null;
   this.hit = 0;
   this.sunk = false;
 }
@@ -12,10 +12,6 @@ Ship.prototype.getHits = function () {
   return this.hit;  
 };
 
-Ship.prototype.getSunk = function () {
-  return this.sunk;  
-};
-
 Ship.prototype.hitShip = function () {
   this.hit += 1;
 };
@@ -24,6 +20,8 @@ Ship.prototype.isSunk = function () {
   if (this.length == this.hit) {
     this.sunk = true;
   }
+
+  return this.sunk;
 }
 
-export default Ship;
+module.exports = Ship
