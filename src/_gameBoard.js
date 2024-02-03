@@ -15,4 +15,13 @@ function GameBoard() {
   this.shipArray = [];
 }
 
+GameBoard.prototype.rotateShipPosition() = function () {
+  if (this.rotate === false) {
+    this.rotate = true;
+  }
+  else {
+    this.rotate = false;
+  }
+}
+
 module.exports = GameBoard
