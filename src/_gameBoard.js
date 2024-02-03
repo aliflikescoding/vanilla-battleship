@@ -24,4 +24,8 @@ GameBoard.prototype.rotateShipPosition() = function () {
   }
 }
 
+GameBoard.prototype.getRotateStatus() = function () {
+  return this.rotate;
+}
+
 module.exports = GameBoard
