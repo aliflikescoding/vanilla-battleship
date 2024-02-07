@@ -188,3 +188,19 @@ test("return Ship_4", () => {
   Ship_4 = { length: 4, hit: 0, sunk: false}
   expect(gameBoard.returnShipObject(4)).toEqual(Ship_4);
 })
+
+
+test("place ship", () => {
+  const gameBoard = new GameBoard();
+  gameBoard.placeShip(0, 0, 2)
+  Ship_2 = { length: 2, hit: 0, sunk: false}
+  expect(gameBoard.getShipArray()).toEqual([[Ship_2, [[0, 0], [1, 0]]]]);
+})
+
+test("place ship vertically", () => {
+  const gameBoard = new GameBoard();
+  gameBoard.rotateShipPosition();
+  gameBoard.placeShip(0, 0, 2)
+  Ship_2 = { length: 2, hit: 0, sunk: false}
+  expect(gameBoard.getShipArray()).toEqual([[Ship_2, [[0, 0], [0, 1]]]]);
+})

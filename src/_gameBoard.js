@@ -28,6 +28,10 @@ GameBoard.prototype.getGrid = function () {
   return this.grid;
 };
 
+GameBoard.prototype.getShipArray = function () {
+  return this.shipArray;
+}
+
 // setters
 GameBoard.prototype.setGrid = function (grid) {
   return this.grid = grid;
@@ -92,13 +96,19 @@ GameBoard.prototype.returnShipObject = function (shipType) {
   return ship;
 }  
 
-GameBoard.prototype.placeShip = function (Xcoordinates, Ycoordinates, incrementNumber, shipType) {
+GameBoard.prototype.placeShip = function (Xcoordinates, Ycoordinates, shipType) {
+  let array = this.shipArray;
   if (this.rotate == false) {
     this.placeHorizontal(Xcoordinates, Ycoordinates, shipType);
+    array.push([this.returnShipObject(shipType), this.getHorizontalCoordinants(Xcoordinates, Ycoordinates, shipType)]);
   }
   else {
-    this.placeHorizontal(Xcoordinates, Ycoordinates, shipType);
+    this.placeVertical(Xcoordinates, Ycoordinates, shipType);
+    array.push([this.returnShipObject(shipType), this.getVerticalCoordinants(Xcoordinates, Ycoordinates, shipType)]);
   }
+  this.shipArray = array;
 };
+
+
 
 module.exports = GameBoard
