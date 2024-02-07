@@ -1,3 +1,7 @@
+const Ship_2 = require("./_ship_2")
+const Ship_3 = require("./_ship_3")
+const Ship_4 = require("./_ship_4")
+
 function GameBoard() {
   this.grid = [
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
