@@ -1,4 +1,4 @@
-const GameBoard = require("./../_gameBoard")
+const GameBoard = require("./../_gameBoard");
 
 test("placing correctly horizontally 1", () => {
   const gameBoard = new GameBoard();
@@ -14,9 +14,9 @@ test("placing correctly horizontally 1", () => {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   ]);
-})
+});
 
 test("placing correctly horizontally 2", () => {
   const gameBoard = new GameBoard();
@@ -32,9 +32,9 @@ test("placing correctly horizontally 2", () => {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   ]);
-})
+});
 
 test("placing correctly horizontally 2", () => {
   const gameBoard = new GameBoard();
@@ -50,9 +50,9 @@ test("placing correctly horizontally 2", () => {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   ]);
-})
+});
 
 test("placing correctly vertically 1", () => {
   const gameBoard = new GameBoard();
@@ -68,9 +68,9 @@ test("placing correctly vertically 1", () => {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   ]);
-})
+});
 
 test("placing correctly vertically 1", () => {
   const gameBoard = new GameBoard();
@@ -86,9 +86,9 @@ test("placing correctly vertically 1", () => {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   ]);
-})
+});
 
 test("placing correctly vertically 2", () => {
   const gameBoard = new GameBoard();
@@ -104,6 +104,66 @@ test("placing correctly vertically 2", () => {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
   ]);
-})
+});
+
+test("get horizontal coordinants 1", () => {
+  const gameBoard = new GameBoard();
+
+  expect(gameBoard.getHorizontalCoordinants(0, 0, 2)).toStrictEqual([
+    [0, 0],
+    [1, 0],
+  ]);
+});
+
+test("get horizontal coordinants 2", () => {
+  const gameBoard = new GameBoard();
+
+  expect(gameBoard.getHorizontalCoordinants(6, 2, 3)).toStrictEqual([
+    [6, 2],
+    [7, 2],
+    [8, 2]
+  ]);
+});
+
+test("get horizontal coordinants 3", () => {
+  const gameBoard = new GameBoard();
+
+  expect(gameBoard.getHorizontalCoordinants(3, 2, 4)).toStrictEqual([
+    [3, 2],
+    [4, 2],
+    [5, 2],
+    [6, 2]
+  ]);
+});
+
+test("get vertical coordinants 1", () => {
+  const gameBoard = new GameBoard();
+
+  expect(gameBoard.getVerticalCoordinants(0, 0, 2)).toStrictEqual([
+    [0, 0],
+    [0, 1],
+  ]);
+});
+
+test("get vertical coordinants 2", () => {
+  const gameBoard = new GameBoard();
+
+  expect(gameBoard.getVerticalCoordinants(6, 2, 3)).toStrictEqual([
+    [6, 2],
+    [6, 3],
+    [6, 4]
+  ]);
+});
+
+test("get vertical coordinants 3", () => {
+  const gameBoard = new GameBoard();
+
+  expect(gameBoard.getVerticalCoordinants(3, 2, 4)).toStrictEqual([
+    [3, 2],
+    [3, 3],
+    [3, 4],
+    [3, 5]
+  ]);
+});

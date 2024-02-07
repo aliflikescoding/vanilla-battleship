@@ -54,6 +54,28 @@ GameBoard.prototype.placeVertical = function (Xcoordinates, Ycoordinates, shipTy
   this.setGrid(array);
 };
 
+GameBoard.prototype.getHorizontalCoordinants = function (Xcoordinates, Ycoordinates, shipType) {
+  let array = [];
+  for (let i = 0; i <= shipType-1; i++) {
+    let array_two = [];
+    array_two.push(Xcoordinates+i);
+    array_two.push(Ycoordinates);
+    array.push(array_two);
+  }
+  return array;
+}
+
+GameBoard.prototype.getVerticalCoordinants = function (Xcoordinates, Ycoordinates, shipType) {
+  let array = [];
+  for (let i = 0; i <= shipType-1; i++) {
+    let array_two = [];
+    array_two.push(Xcoordinates);
+    array_two.push(Ycoordinates+i);
+    array.push(array_two);
+  }
+  return array;
+}
+
 GameBoard.prototype.placeShip = function (Xcoordinates, Ycoordinates, incrementNumber, shipType) {
   if (this.rotate == false) {
     this.placeHorizontal(Xcoordinates, Ycoordinates, shipType);
