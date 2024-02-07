@@ -80,6 +80,18 @@ GameBoard.prototype.getVerticalCoordinants = function (Xcoordinates, Ycoordinate
   return array;
 }
 
+GameBoard.prototype.returnShipObject = function (shipType) {
+  let ship;
+  if (shipType === 2) {
+    ship = new Ship_2();
+  } else if (shipType === 3) {
+    ship = new Ship_3();
+  } else if (shipType === 4) {
+    ship = new Ship_4();
+  }
+  return ship;
+}  
+
 GameBoard.prototype.placeShip = function (Xcoordinates, Ycoordinates, incrementNumber, shipType) {
   if (this.rotate == false) {
     this.placeHorizontal(Xcoordinates, Ycoordinates, shipType);

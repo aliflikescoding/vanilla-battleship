@@ -167,3 +167,24 @@ test("get vertical coordinants 3", () => {
     [3, 5]
   ]);
 });
+
+test("return Ship_2", () => {
+  const gameBoard = new GameBoard();
+
+  Ship_2 = { length: 2, hit: 0, sunk: false}
+  expect(gameBoard.returnShipObject(2)).toEqual(Ship_2);
+})
+
+test("return Ship_3", () => {
+  const gameBoard = new GameBoard();
+
+  Ship_3 = { length: 3, hit: 0, sunk: false}
+  expect(gameBoard.returnShipObject(3)).toEqual(Ship_3);
+})
+
+test("return Ship_4", () => {
+  const gameBoard = new GameBoard();
+
+  Ship_4 = { length: 4, hit: 0, sunk: false}
+  expect(gameBoard.returnShipObject(4)).toEqual(Ship_4);
+})
