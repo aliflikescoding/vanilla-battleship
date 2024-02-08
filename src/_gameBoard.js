@@ -118,7 +118,7 @@ GameBoard.prototype.undoPlacement = function () {
   lastElementCoordinants.forEach((cords) => {
     let x = cords[0];
     let y = cords[1];
-    grid[x][y] = 0;
+    grid[y][x] = 0;
   });
   shipArray.pop();
   this.shipArray = shipArray;
