@@ -109,6 +109,20 @@ GameBoard.prototype.placeShip = function (Xcoordinates, Ycoordinates, shipType) 
   this.shipArray = array;
 };
 
+GameBoard.prototype.undoPlacement = function () {
+  let grid = this.grid;
+  let shipArray = this.shipArray;
 
+  let lastElement = shipArray[shipArray.length-1];
+  let lastElementCoordinants = lastElement[1];
+  lastElementCoordinants.forEach((cords) => {
+    let x = cords[0];
+    let y = cords[1];
+    grid[x][y] = 0;
+  });
+  shipArray.pop();
+  this.shipArray = shipArray;
+  this.grid = grid;
+}
 
 module.exports = GameBoard

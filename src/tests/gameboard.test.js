@@ -204,3 +204,29 @@ test("place ship vertically", () => {
   Ship_2 = { length: 2, hit: 0, sunk: false}
   expect(gameBoard.getShipArray()).toEqual([[Ship_2, [[0, 0], [0, 1]]]]);
 })
+
+test("undo placement 1", () => {
+  const gameBoard = new GameBoard();
+  gameBoard.placeShip(0, 0, 2)
+  gameBoard.undoPlacement();
+  expect(gameBoard.getShipArray()).toEqual([]);
+})
+
+test("undo placement 2", () => {
+  const gameBoard = new GameBoard();
+  gameBoard.placeShip(0, 0, 2)
+  gameBoard.undoPlacement();
+
+  expect(gameBoard.getGrid()).toStrictEqual([
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  ]);
+});
