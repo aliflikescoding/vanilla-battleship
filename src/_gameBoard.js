@@ -17,6 +17,7 @@ function GameBoard() {
     ];
   this.rotate = false;
   this.shipArray = [];
+  this.shipNumber = this.shipArray.length;
 }
 
 // getters
