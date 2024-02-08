@@ -125,4 +125,10 @@ GameBoard.prototype.undoPlacement = function () {
   this.grid = grid;
 }
 
+GameBoard.prototype.receiveAttack = function (Xcoordinates, Ycoordinates) {
+  let array = this.getGrid();
+  array[Ycoordinates][Xcoordinates] = "x";
+  this.setGrid(array);
+};
+
 module.exports = GameBoard
