@@ -307,3 +307,14 @@ test("receive attack in the ship array", () => {
 
   expect(shipArray[1][0]).toEqual(Ship_3);
 });
+
+test("receive attack in the ship array", () => {
+  const gameBoard = new GameBoard();
+  gameBoard.placeShip(0, 0, 2);
+
+  gameBoard.receiveAttack(0, 0);
+  gameBoard.receiveAttack(1, 0);
+  gameBoard.receiveAttack(2, 0);
+  
+  expect(gameBoard.getShipArray()).toEqual([]);;
+});

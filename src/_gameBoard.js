@@ -141,11 +141,20 @@ GameBoard.prototype.getPositionShipIfHit = function (Xcoordinates, Ycoordinates)
   return shipIndex;
 }
 
+GameBoard.prototype.removeShipIfSunk = function (shipPosition) {
+  let shipArray = this.getShipArray();
+  if (shipArray[shipPosition][0].isSunk() === true) {
+    shipArray.splice(shipPosition, 1);
+  }
+  this.shipArray = shipArray;
+}
+
 GameBoard.prototype.receiveAttack = function (Xcoordinates, Ycoordinates) {
   let grid = this.getGrid(), shipArray = this.getShipArray();
   if (grid[Ycoordinates][Xcoordinates] === 1) {
     let shipPosition = this.getPositionShipIfHit(Xcoordinates, Ycoordinates);
     shipArray[shipPosition][0].hitShip();
+    this.removeShipIfSunk(shipPosition);
   }
   grid[Ycoordinates][Xcoordinates] = "x";
   this.setGrid(grid);
