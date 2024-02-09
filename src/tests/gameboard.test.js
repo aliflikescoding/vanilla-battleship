@@ -269,3 +269,23 @@ test("receive attack 2", () => {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   ]);
 });
+
+test("get ship position in the array if hit test 1", () => {
+  const gameBoard = new GameBoard();
+  gameBoard.rotateShipPosition();
+  gameBoard.placeShip(0, 0, 4);
+  gameBoard.rotateShipPosition();
+  gameBoard.placeShip(1, 0, 3);
+  
+  expect(gameBoard.getPositionShipIfHit(2, 0)).toBe(1);
+});
+
+test("get ship position in the array if hit test 2", () => {
+  const gameBoard = new GameBoard();
+  gameBoard.rotateShipPosition();
+  gameBoard.placeShip(0, 0, 4);
+  gameBoard.rotateShipPosition();
+  gameBoard.placeShip(1, 0, 3);
+  
+  expect(gameBoard.getPositionShipIfHit(0, 2)).toBe(0);
+});

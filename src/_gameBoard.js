@@ -103,7 +103,7 @@ GameBoard.prototype.placeShip = function (Xcoordinates, Ycoordinates, shipType) 
   else {
     this.placeVertical(Xcoordinates, Ycoordinates, shipType);
     arrayTwo.push(this.returnShipObject(shipType));
-    arrayTwo.push(...this.getVerticalCoordinants(Xcoordinates, Ycoordinates, shipType));
+    arrayTwo.push(this.getVerticalCoordinants(Xcoordinates, Ycoordinates, shipType));
     array.push(arrayTwo);
   }
   this.shipArray = array;
@@ -123,6 +123,22 @@ GameBoard.prototype.undoPlacement = function () {
   shipArray.pop();
   this.shipArray = shipArray;
   this.grid = grid;
+}
+
+GameBoard.prototype.getPositionShipIfHit = function (Xcoordinates, Ycoordinates) {
+  shipArray = this.getShipArray();
+  let shipIndex;
+  shipArray.forEach((shipPair, index) => {
+    let shipCords = shipPair[1];
+    shipCords.forEach((cords) => {
+      let x = cords[0];
+      let y = cords[1];
+      if (x == Xcoordinates && y == Ycoordinates) {
+        shipIndex = index;
+      }
+    })
+  })
+  return shipIndex;
 }
 
 GameBoard.prototype.receiveAttack = function (Xcoordinates, Ycoordinates) {
