@@ -289,3 +289,21 @@ test("get ship position in the array if hit test 2", () => {
   
   expect(gameBoard.getPositionShipIfHit(0, 2)).toBe(0);
 });
+
+test("receive attack in the ship array", () => {
+  const gameBoard = new GameBoard();
+
+  gameBoard.placeShip(0, 0, 4);
+  gameBoard.placeShip(0, 2, 3)
+
+  gameBoard.receiveAttack(0, 0);
+  gameBoard.receiveAttack(1, 0);
+  gameBoard.receiveAttack(0, 2);
+
+  const shipArray = gameBoard.getShipArray()
+  let Ship_4 = { length: 4, hit: 2, sunk: false };
+  let Ship_3 = { length: 3, hit: 1, sunk: false };
+  expect(shipArray[0][0]).toEqual(Ship_4);
+
+  expect(shipArray[1][0]).toEqual(Ship_3);
+});

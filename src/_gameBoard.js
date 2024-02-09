@@ -142,9 +142,13 @@ GameBoard.prototype.getPositionShipIfHit = function (Xcoordinates, Ycoordinates)
 }
 
 GameBoard.prototype.receiveAttack = function (Xcoordinates, Ycoordinates) {
-  let array = this.getGrid();
-  array[Ycoordinates][Xcoordinates] = "x";
-  this.setGrid(array);
+  let grid = this.getGrid(), shipArray = this.getShipArray();
+  if (grid[Ycoordinates][Xcoordinates] === 1) {
+    let shipPosition = this.getPositionShipIfHit(Xcoordinates, Ycoordinates);
+    shipArray[shipPosition][0].hitShip();
+  }
+  grid[Ycoordinates][Xcoordinates] = "x";
+  this.setGrid(grid);
 };
 
 module.exports = GameBoard
