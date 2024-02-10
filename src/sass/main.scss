@@ -47,6 +47,31 @@ header {
   opacity: 20%;
 }
 
+.pick-area {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 3;
+  background: $background;
+  border-radius: 15px;
+
+  h1 {
+    margin-top: 15px;
+    font-weight: map-get($font-weights, medium);
+  }
+
+  h2 {
+    margin-top: 30px;
+    font-weight: map-get($font-weights, regular);
+  }
+}
+
 footer {
   display: flex;
   justify-content: center;
