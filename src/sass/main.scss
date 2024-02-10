@@ -10,6 +10,16 @@ body {
   font-weight: map-get($font-weights, regular);
 }
 
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 4.5rem;
+  }
+}
+
 footer {
   display: flex;
   justify-content: center;
