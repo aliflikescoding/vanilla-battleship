@@ -73,6 +73,14 @@ header {
   }
 }
 
+.pick-button-area {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+}
+
 footer {
   display: flex;
   justify-content: center;
