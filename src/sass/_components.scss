@@ -339,6 +339,11 @@
     color: $background;
   }
 
+  &-primary {
+    background: $primary;
+    color: $text;
+  }
+
   &:hover {
     cursor: pointer; 
   }
