@@ -335,6 +335,11 @@
     color: $background;
   }
 
+  &-success {
+    background: $success;
+    color: $background;
+  }
+
   &-primary {
     background: $primary;
     color: $text;
