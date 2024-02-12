@@ -9,10 +9,6 @@
     background: $primary;
     border: solid 1px $text;
 
-    &:hover {
-      background: $success;
-    }
-
     &-00 {
       grid-area: 1 / 1 / 2 / 2;
     }
@@ -280,7 +276,7 @@
       grid-area: 9 / 6 / 10 / 7;
     }
     &-86 {
-      grid-area: 9 / 7 / 10 / 9;
+      grid-area: 9 / 7 / 10 / 8;
     }
     &-87 {
       grid-area: 9 / 8 / 10 / 9;
