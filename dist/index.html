@@ -1,383 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
     />
-  <title>Battleship</title>
-</head>
-<body>
-  <div class="black-background"></div>
-  <div class="pick-area">
-    <h1>Place Your Ships on the board</h1>
-    <h2>Place Your <span id="boatTypeText">carrier</span></h2>
-    <div class="pick-area-grid">
-      <div class="grid">
-        <div class="grid-box grid-box-00"></div>
-        <div class="grid-box grid-box-01"></div>
-        <div class="grid-box grid-box-02"></div>
-        <div class="grid-box grid-box-03"></div>
-        <div class="grid-box grid-box-04"></div>
-        <div class="grid-box grid-box-05"></div>
-        <div class="grid-box grid-box-06"></div>
-        <div class="grid-box grid-box-07"></div>
-        <div class="grid-box grid-box-08"></div>
-        <div class="grid-box grid-box-09"></div>
-        
-        <div class="grid-box grid-box-10"></div>
-        <div class="grid-box grid-box-11"></div>
-        <div class="grid-box grid-box-12"></div>
-        <div class="grid-box grid-box-13"></div>
-        <div class="grid-box grid-box-14"></div>
-        <div class="grid-box grid-box-15"></div>
-        <div class="grid-box grid-box-16"></div>
-        <div class="grid-box grid-box-17"></div>
-        <div class="grid-box grid-box-18"></div>
-        <div class="grid-box grid-box-19"></div>
-        
-        <div class="grid-box grid-box-20"></div>
-        <div class="grid-box grid-box-21"></div>
-        <div class="grid-box grid-box-22"></div>
-        <div class="grid-box grid-box-23"></div>
-        <div class="grid-box grid-box-24"></div>
-        <div class="grid-box grid-box-25"></div>
-        <div class="grid-box grid-box-26"></div>
-        <div class="grid-box grid-box-27"></div>
-        <div class="grid-box grid-box-28"></div>
-        <div class="grid-box grid-box-29"></div>
-        
-        <div class="grid-box grid-box-30"></div>
-        <div class="grid-box grid-box-31"></div>
-        <div class="grid-box grid-box-32"></div>
-        <div class="grid-box grid-box-33"></div>
-        <div class="grid-box grid-box-34"></div>
-        <div class="grid-box grid-box-35"></div>
-        <div class="grid-box grid-box-36"></div>
-        <div class="grid-box grid-box-37"></div>
-        <div class="grid-box grid-box-38"></div>
-        <div class="grid-box grid-box-39"></div>
-        
-        <div class="grid-box grid-box-40"></div>
-        <div class="grid-box grid-box-41"></div>
-        <div class="grid-box grid-box-42"></div>
-        <div class="grid-box grid-box-43"></div>
-        <div class="grid-box grid-box-44"></div>
-        <div class="grid-box grid-box-45"></div>
-        <div class="grid-box grid-box-46"></div>
-        <div class="grid-box grid-box-47"></div>
-        <div class="grid-box grid-box-48"></div>
-        <div class="grid-box grid-box-49"></div>
-        
-        <div class="grid-box grid-box-50"></div>
-        <div class="grid-box grid-box-51"></div>
-        <div class="grid-box grid-box-52"></div>
-        <div class="grid-box grid-box-53"></div>
-        <div class="grid-box grid-box-54"></div>
-        <div class="grid-box grid-box-55"></div>
-        <div class="grid-box grid-box-56"></div>
-        <div class="grid-box grid-box-57"></div>
-        <div class="grid-box grid-box-58"></div>
-        <div class="grid-box grid-box-59"></div>
-        
-        <div class="grid-box grid-box-60"></div>
-        <div class="grid-box grid-box-61"></div>
-        <div class="grid-box grid-box-62"></div>
-        <div class="grid-box grid-box-63"></div>
-        <div class="grid-box grid-box-64"></div>
-        <div class="grid-box grid-box-65"></div>
-        <div class="grid-box grid-box-66"></div>
-        <div class="grid-box grid-box-67"></div>
-        <div class="grid-box grid-box-68"></div>
-        <div class="grid-box grid-box-69"></div>
-        
-        <div class="grid-box grid-box-70"></div>
-        <div class="grid-box grid-box-71"></div>
-        <div class="grid-box grid-box-72"></div>
-        <div class="grid-box grid-box-73"></div>
-        <div class="grid-box grid-box-74"></div>
-        <div class="grid-box grid-box-75"></div>
-        <div class="grid-box grid-box-76"></div>
-        <div class="grid-box grid-box-77"></div>
-        <div class="grid-box grid-box-78"></div>
-        <div class="grid-box grid-box-79"></div>
-        
-        <div class="grid-box grid-box-80"></div>
-        <div class="grid-box grid-box-81"></div>
-        <div class="grid-box grid-box-82"></div>
-        <div class="grid-box grid-box-83"></div>
-        <div class="grid-box grid-box-84"></div>
-        <div class="grid-box grid-box-85"></div>
-        <div class="grid-box grid-box-86"></div>
-        <div class="grid-box grid-box-87"></div>
-        <div class="grid-box grid-box-88"></div>
-        <div class="grid-box grid-box-89"></div>
-        
-        <div class="grid-box grid-box-90"></div>
-        <div class="grid-box grid-box-91"></div>
-        <div class="grid-box grid-box-92"></div>
-        <div class="grid-box grid-box-93"></div>
-        <div class="grid-box grid-box-94"></div>
-        <div class="grid-box grid-box-95"></div>
-        <div class="grid-box grid-box-96"></div>
-        <div class="grid-box grid-box-97"></div>
-        <div class="grid-box grid-box-98"></div>
-        <div class="grid-box grid-box-99"></div>
-      </div>
-    </div>
-    <div class="pick-button-area">
-      <button class="button button-primary" id="buttonRotate">Rotate</button>
-      <button class="button button-success" id="buttonStartGame">Start Game</button>
-      <button class="button button-danger" id="buttonUndo">Undo</button>
-    </div>
-  </div>
-  <header class="header">
-    <h1>Battleship</h1>
-  </header>
-  <div class="game-text-area">
-    <h1 id="gameText">Hello World</h1>
-  </div>
-  <main class="main">
-    <div class="section section-player">
-      <h1>Player</h1>
-      <div class="player-area-grid">
+    <title>Battleship</title>
+  </head>
+  <body>
+    <div class="black-background"></div>
+    <div class="pick-area">
+      <h1>Place Your Ships on the board</h1>
+      <h2>Place Your <span id="boatTypeText">carrier</span></h2>
+      <div class="pick-area-grid">
         <div class="grid">
-          <div class="grid-box grid-box-00"></div>
-          <div class="grid-box grid-box-01"></div>
-          <div class="grid-box grid-box-02"></div>
-          <div class="grid-box grid-box-03"></div>
-          <div class="grid-box grid-box-04"></div>
-          <div class="grid-box grid-box-05"></div>
-          <div class="grid-box grid-box-06"></div>
-          <div class="grid-box grid-box-07"></div>
-          <div class="grid-box grid-box-08"></div>
-          <div class="grid-box grid-box-09"></div>
-          
-          <div class="grid-box grid-box-10"></div>
-          <div class="grid-box grid-box-11"></div>
-          <div class="grid-box grid-box-12"></div>
-          <div class="grid-box grid-box-13"></div>
-          <div class="grid-box grid-box-14"></div>
-          <div class="grid-box grid-box-15"></div>
-          <div class="grid-box grid-box-16"></div>
-          <div class="grid-box grid-box-17"></div>
-          <div class="grid-box grid-box-18"></div>
-          <div class="grid-box grid-box-19"></div>
-          
-          <div class="grid-box grid-box-20"></div>
-          <div class="grid-box grid-box-21"></div>
-          <div class="grid-box grid-box-22"></div>
-          <div class="grid-box grid-box-23"></div>
-          <div class="grid-box grid-box-24"></div>
-          <div class="grid-box grid-box-25"></div>
-          <div class="grid-box grid-box-26"></div>
-          <div class="grid-box grid-box-27"></div>
-          <div class="grid-box grid-box-28"></div>
-          <div class="grid-box grid-box-29"></div>
-          
-          <div class="grid-box grid-box-30"></div>
-          <div class="grid-box grid-box-31"></div>
-          <div class="grid-box grid-box-32"></div>
-          <div class="grid-box grid-box-33"></div>
-          <div class="grid-box grid-box-34"></div>
-          <div class="grid-box grid-box-35"></div>
-          <div class="grid-box grid-box-36"></div>
-          <div class="grid-box grid-box-37"></div>
-          <div class="grid-box grid-box-38"></div>
-          <div class="grid-box grid-box-39"></div>
-          
-          <div class="grid-box grid-box-40"></div>
-          <div class="grid-box grid-box-41"></div>
-          <div class="grid-box grid-box-42"></div>
-          <div class="grid-box grid-box-43"></div>
-          <div class="grid-box grid-box-44"></div>
-          <div class="grid-box grid-box-45"></div>
-          <div class="grid-box grid-box-46"></div>
-          <div class="grid-box grid-box-47"></div>
-          <div class="grid-box grid-box-48"></div>
-          <div class="grid-box grid-box-49"></div>
-          
-          <div class="grid-box grid-box-50"></div>
-          <div class="grid-box grid-box-51"></div>
-          <div class="grid-box grid-box-52"></div>
-          <div class="grid-box grid-box-53"></div>
-          <div class="grid-box grid-box-54"></div>
-          <div class="grid-box grid-box-55"></div>
-          <div class="grid-box grid-box-56"></div>
-          <div class="grid-box grid-box-57"></div>
-          <div class="grid-box grid-box-58"></div>
-          <div class="grid-box grid-box-59"></div>
-          
-          <div class="grid-box grid-box-60"></div>
-          <div class="grid-box grid-box-61"></div>
-          <div class="grid-box grid-box-62"></div>
-          <div class="grid-box grid-box-63"></div>
-          <div class="grid-box grid-box-64"></div>
-          <div class="grid-box grid-box-65"></div>
-          <div class="grid-box grid-box-66"></div>
-          <div class="grid-box grid-box-67"></div>
-          <div class="grid-box grid-box-68"></div>
-          <div class="grid-box grid-box-69"></div>
-          
-          <div class="grid-box grid-box-70"></div>
-          <div class="grid-box grid-box-71"></div>
-          <div class="grid-box grid-box-72"></div>
-          <div class="grid-box grid-box-73"></div>
-          <div class="grid-box grid-box-74"></div>
-          <div class="grid-box grid-box-75"></div>
-          <div class="grid-box grid-box-76"></div>
-          <div class="grid-box grid-box-77"></div>
-          <div class="grid-box grid-box-78"></div>
-          <div class="grid-box grid-box-79"></div>
-          
-          <div class="grid-box grid-box-80"></div>
-          <div class="grid-box grid-box-81"></div>
-          <div class="grid-box grid-box-82"></div>
-          <div class="grid-box grid-box-83"></div>
-          <div class="grid-box grid-box-84"></div>
-          <div class="grid-box grid-box-85"></div>
-          <div class="grid-box grid-box-86"></div>
-          <div class="grid-box grid-box-87"></div>
-          <div class="grid-box grid-box-88"></div>
-          <div class="grid-box grid-box-89"></div>
-          
-          <div class="grid-box grid-box-90"></div>
-          <div class="grid-box grid-box-91"></div>
-          <div class="grid-box grid-box-92"></div>
-          <div class="grid-box grid-box-93"></div>
-          <div class="grid-box grid-box-94"></div>
-          <div class="grid-box grid-box-95"></div>
-          <div class="grid-box grid-box-96"></div>
-          <div class="grid-box grid-box-97"></div>
-          <div class="grid-box grid-box-98"></div>
-          <div class="grid-box grid-box-99"></div>
+          <div class="grid-box grid-box-00 pick-box"></div>
+          <div class="grid-box grid-box-01 pick-box"></div>
+          <div class="grid-box grid-box-02 pick-box"></div>
+          <div class="grid-box grid-box-03 pick-box"></div>
+          <div class="grid-box grid-box-04 pick-box"></div>
+          <div class="grid-box grid-box-05 pick-box"></div>
+          <div class="grid-box grid-box-06 pick-box"></div>
+          <div class="grid-box grid-box-07 pick-box"></div>
+          <div class="grid-box grid-box-08 pick-box"></div>
+          <div class="grid-box grid-box-09 pick-box"></div>
+          <div class="grid-box grid-box-10 pick-box"></div>
+          <div class="grid-box grid-box-11 pick-box"></div>
+          <div class="grid-box grid-box-12 pick-box"></div>
+          <div class="grid-box grid-box-13 pick-box"></div>
+          <div class="grid-box grid-box-14 pick-box"></div>
+          <div class="grid-box grid-box-15 pick-box"></div>
+          <div class="grid-box grid-box-16 pick-box"></div>
+          <div class="grid-box grid-box-17 pick-box"></div>
+          <div class="grid-box grid-box-18 pick-box"></div>
+          <div class="grid-box grid-box-19 pick-box"></div>
+          <div class="grid-box grid-box-20 pick-box"></div>
+          <div class="grid-box grid-box-21 pick-box"></div>
+          <div class="grid-box grid-box-22 pick-box"></div>
+          <div class="grid-box grid-box-23 pick-box"></div>
+          <div class="grid-box grid-box-24 pick-box"></div>
+          <div class="grid-box grid-box-25 pick-box"></div>
+          <div class="grid-box grid-box-26 pick-box"></div>
+          <div class="grid-box grid-box-27 pick-box"></div>
+          <div class="grid-box grid-box-28 pick-box"></div>
+          <div class="grid-box grid-box-29 pick-box"></div>
+          <div class="grid-box grid-box-30 pick-box"></div>
+          <div class="grid-box grid-box-31 pick-box"></div>
+          <div class="grid-box grid-box-32 pick-box"></div>
+          <div class="grid-box grid-box-33 pick-box"></div>
+          <div class="grid-box grid-box-34 pick-box"></div>
+          <div class="grid-box grid-box-35 pick-box"></div>
+          <div class="grid-box grid-box-36 pick-box"></div>
+          <div class="grid-box grid-box-37 pick-box"></div>
+          <div class="grid-box grid-box-38 pick-box"></div>
+          <div class="grid-box grid-box-39 pick-box"></div>
+          <div class="grid-box grid-box-40 pick-box"></div>
+          <div class="grid-box grid-box-41 pick-box"></div>
+          <div class="grid-box grid-box-42 pick-box"></div>
+          <div class="grid-box grid-box-43 pick-box"></div>
+          <div class="grid-box grid-box-44 pick-box"></div>
+          <div class="grid-box grid-box-45 pick-box"></div>
+          <div class="grid-box grid-box-46 pick-box"></div>
+          <div class="grid-box grid-box-47 pick-box"></div>
+          <div class="grid-box grid-box-48 pick-box"></div>
+          <div class="grid-box grid-box-49 pick-box"></div>
+          <div class="grid-box grid-box-50 pick-box"></div>
+          <div class="grid-box grid-box-51 pick-box"></div>
+          <div class="grid-box grid-box-52 pick-box"></div>
+          <div class="grid-box grid-box-53 pick-box"></div>
+          <div class="grid-box grid-box-54 pick-box"></div>
+          <div class="grid-box grid-box-55 pick-box"></div>
+          <div class="grid-box grid-box-56 pick-box"></div>
+          <div class="grid-box grid-box-57 pick-box"></div>
+          <div class="grid-box grid-box-58 pick-box"></div>
+          <div class="grid-box grid-box-59 pick-box"></div>
+          <div class="grid-box grid-box-60 pick-box"></div>
+          <div class="grid-box grid-box-61 pick-box"></div>
+          <div class="grid-box grid-box-62 pick-box"></div>
+          <div class="grid-box grid-box-63 pick-box"></div>
+          <div class="grid-box grid-box-64 pick-box"></div>
+          <div class="grid-box grid-box-65 pick-box"></div>
+          <div class="grid-box grid-box-66 pick-box"></div>
+          <div class="grid-box grid-box-67 pick-box"></div>
+          <div class="grid-box grid-box-68 pick-box"></div>
+          <div class="grid-box grid-box-69 pick-box"></div>
+          <div class="grid-box grid-box-70 pick-box"></div>
+          <div class="grid-box grid-box-71 pick-box"></div>
+          <div class="grid-box grid-box-72 pick-box"></div>
+          <div class="grid-box grid-box-73 pick-box"></div>
+          <div class="grid-box grid-box-74 pick-box"></div>
+          <div class="grid-box grid-box-75 pick-box"></div>
+          <div class="grid-box grid-box-76 pick-box"></div>
+          <div class="grid-box grid-box-77 pick-box"></div>
+          <div class="grid-box grid-box-78 pick-box"></div>
+          <div class="grid-box grid-box-79 pick-box"></div>
+          <div class="grid-box grid-box-80 pick-box"></div>
+          <div class="grid-box grid-box-81 pick-box"></div>
+          <div class="grid-box grid-box-82 pick-box"></div>
+          <div class="grid-box grid-box-83 pick-box"></div>
+          <div class="grid-box grid-box-84 pick-box"></div>
+          <div class="grid-box grid-box-85 pick-box"></div>
+          <div class="grid-box grid-box-86 pick-box"></div>
+          <div class="grid-box grid-box-87 pick-box"></div>
+          <div class="grid-box grid-box-88 pick-box"></div>
+          <div class="grid-box grid-box-89 pick-box"></div>
+          <div class="grid-box grid-box-90 pick-box"></div>
+          <div class="grid-box grid-box-91 pick-box"></div>
+          <div class="grid-box grid-box-92 pick-box"></div>
+          <div class="grid-box grid-box-93 pick-box"></div>
+          <div class="grid-box grid-box-94 pick-box"></div>
+          <div class="grid-box grid-box-95 pick-box"></div>
+          <div class="grid-box grid-box-96 pick-box"></div>
+          <div class="grid-box grid-box-97 pick-box"></div>
+          <div class="grid-box grid-box-98 pick-box"></div>
+          <div class="grid-box grid-box-99 pick-box"></div>
         </div>
       </div>
-    </div>
-    <div class="section section-bot">
-      <h1>Bot</h1>
-      <div class="bot-area-grid">
-        <div class="grid">
-          <div class="grid-box grid-box-00"></div>
-          <div class="grid-box grid-box-01"></div>
-          <div class="grid-box grid-box-02"></div>
-          <div class="grid-box grid-box-03"></div>
-          <div class="grid-box grid-box-04"></div>
-          <div class="grid-box grid-box-05"></div>
-          <div class="grid-box grid-box-06"></div>
-          <div class="grid-box grid-box-07"></div>
-          <div class="grid-box grid-box-08"></div>
-          <div class="grid-box grid-box-09"></div>
-          
-          <div class="grid-box grid-box-10"></div>
-          <div class="grid-box grid-box-11"></div>
-          <div class="grid-box grid-box-12"></div>
-          <div class="grid-box grid-box-13"></div>
-          <div class="grid-box grid-box-14"></div>
-          <div class="grid-box grid-box-15"></div>
-          <div class="grid-box grid-box-16"></div>
-          <div class="grid-box grid-box-17"></div>
-          <div class="grid-box grid-box-18"></div>
-          <div class="grid-box grid-box-19"></div>
-          
-          <div class="grid-box grid-box-20"></div>
-          <div class="grid-box grid-box-21"></div>
-          <div class="grid-box grid-box-22"></div>
-          <div class="grid-box grid-box-23"></div>
-          <div class="grid-box grid-box-24"></div>
-          <div class="grid-box grid-box-25"></div>
-          <div class="grid-box grid-box-26"></div>
-          <div class="grid-box grid-box-27"></div>
-          <div class="grid-box grid-box-28"></div>
-          <div class="grid-box grid-box-29"></div>
-          
-          <div class="grid-box grid-box-30"></div>
-          <div class="grid-box grid-box-31"></div>
-          <div class="grid-box grid-box-32"></div>
-          <div class="grid-box grid-box-33"></div>
-          <div class="grid-box grid-box-34"></div>
-          <div class="grid-box grid-box-35"></div>
-          <div class="grid-box grid-box-36"></div>
-          <div class="grid-box grid-box-37"></div>
-          <div class="grid-box grid-box-38"></div>
-          <div class="grid-box grid-box-39"></div>
-          
-          <div class="grid-box grid-box-40"></div>
-          <div class="grid-box grid-box-41"></div>
-          <div class="grid-box grid-box-42"></div>
-          <div class="grid-box grid-box-43"></div>
-          <div class="grid-box grid-box-44"></div>
-          <div class="grid-box grid-box-45"></div>
-          <div class="grid-box grid-box-46"></div>
-          <div class="grid-box grid-box-47"></div>
-          <div class="grid-box grid-box-48"></div>
-          <div class="grid-box grid-box-49"></div>
-          
-          <div class="grid-box grid-box-50"></div>
-          <div class="grid-box grid-box-51"></div>
-          <div class="grid-box grid-box-52"></div>
-          <div class="grid-box grid-box-53"></div>
-          <div class="grid-box grid-box-54"></div>
-          <div class="grid-box grid-box-55"></div>
-          <div class="grid-box grid-box-56"></div>
-          <div class="grid-box grid-box-57"></div>
-          <div class="grid-box grid-box-58"></div>
-          <div class="grid-box grid-box-59"></div>
-          
-          <div class="grid-box grid-box-60"></div>
-          <div class="grid-box grid-box-61"></div>
-          <div class="grid-box grid-box-62"></div>
-          <div class="grid-box grid-box-63"></div>
-          <div class="grid-box grid-box-64"></div>
-          <div class="grid-box grid-box-65"></div>
-          <div class="grid-box grid-box-66"></div>
-          <div class="grid-box grid-box-67"></div>
-          <div class="grid-box grid-box-68"></div>
-          <div class="grid-box grid-box-69"></div>
-          
-          <div class="grid-box grid-box-70"></div>
-          <div class="grid-box grid-box-71"></div>
-          <div class="grid-box grid-box-72"></div>
-          <div class="grid-box grid-box-73"></div>
-          <div class="grid-box grid-box-74"></div>
-          <div class="grid-box grid-box-75"></div>
-          <div class="grid-box grid-box-76"></div>
-          <div class="grid-box grid-box-77"></div>
-          <div class="grid-box grid-box-78"></div>
-          <div class="grid-box grid-box-79"></div>
-          
-          <div class="grid-box grid-box-80"></div>
-          <div class="grid-box grid-box-81"></div>
-          <div class="grid-box grid-box-82"></div>
-          <div class="grid-box grid-box-83"></div>
-          <div class="grid-box grid-box-84"></div>
-          <div class="grid-box grid-box-85"></div>
-          <div class="grid-box grid-box-86"></div>
-          <div class="grid-box grid-box-87"></div>
-          <div class="grid-box grid-box-88"></div>
-          <div class="grid-box grid-box-89"></div>
-          
-          <div class="grid-box grid-box-90"></div>
-          <div class="grid-box grid-box-91"></div>
-          <div class="grid-box grid-box-92"></div>
-          <div class="grid-box grid-box-93"></div>
-          <div class="grid-box grid-box-94"></div>
-          <div class="grid-box grid-box-95"></div>
-          <div class="grid-box grid-box-96"></div>
-          <div class="grid-box grid-box-97"></div>
-          <div class="grid-box grid-box-98"></div>
-          <div class="grid-box grid-box-99"></div>
-        </div>
+      <div class="pick-button-area">
+        <button class="button button-primary" id="buttonRotate">Rotate</button>
+        <button class="button button-success" id="buttonStartGame">
+          Start Game
+        </button>
+        <button class="button button-danger" id="buttonUndo">Undo</button>
       </div>
     </div>
-  </main>
-  <footer class="footer">
-    <a href="https://github.com/aliflikescoding" target="_blank">
-      <h1>Aliflikescoding <i class="bi bi-github"></i></h1>
-    </a>
-  </footer>
-  <script type="module" src="./main.js"></script>
-</body>
+    <header class="header">
+      <h1>Battleship</h1>
+    </header>
+    <div class="game-text-area">
+      <h1 id="gameText">Hello World</h1>
+    </div>
+    <main class="main">
+      <div class="section section-player">
+        <h1>Player</h1>
+        <div class="player-area-grid">
+          <div class="grid">
+            <div class="grid-box grid-box-00"></div>
+            <div class="grid-box grid-box-01"></div>
+            <div class="grid-box grid-box-02"></div>
+            <div class="grid-box grid-box-03"></div>
+            <div class="grid-box grid-box-04"></div>
+            <div class="grid-box grid-box-05"></div>
+            <div class="grid-box grid-box-06"></div>
+            <div class="grid-box grid-box-07"></div>
+            <div class="grid-box grid-box-08"></div>
+            <div class="grid-box grid-box-09"></div>
+
+            <div class="grid-box grid-box-10"></div>
+            <div class="grid-box grid-box-11"></div>
+            <div class="grid-box grid-box-12"></div>
+            <div class="grid-box grid-box-13"></div>
+            <div class="grid-box grid-box-14"></div>
+            <div class="grid-box grid-box-15"></div>
+            <div class="grid-box grid-box-16"></div>
+            <div class="grid-box grid-box-17"></div>
+            <div class="grid-box grid-box-18"></div>
+            <div class="grid-box grid-box-19"></div>
+
+            <div class="grid-box grid-box-20"></div>
+            <div class="grid-box grid-box-21"></div>
+            <div class="grid-box grid-box-22"></div>
+            <div class="grid-box grid-box-23"></div>
+            <div class="grid-box grid-box-24"></div>
+            <div class="grid-box grid-box-25"></div>
+            <div class="grid-box grid-box-26"></div>
+            <div class="grid-box grid-box-27"></div>
+            <div class="grid-box grid-box-28"></div>
+            <div class="grid-box grid-box-29"></div>
+
+            <div class="grid-box grid-box-30"></div>
+            <div class="grid-box grid-box-31"></div>
+            <div class="grid-box grid-box-32"></div>
+            <div class="grid-box grid-box-33"></div>
+            <div class="grid-box grid-box-34"></div>
+            <div class="grid-box grid-box-35"></div>
+            <div class="grid-box grid-box-36"></div>
+            <div class="grid-box grid-box-37"></div>
+            <div class="grid-box grid-box-38"></div>
+            <div class="grid-box grid-box-39"></div>
+
+            <div class="grid-box grid-box-40"></div>
+            <div class="grid-box grid-box-41"></div>
+            <div class="grid-box grid-box-42"></div>
+            <div class="grid-box grid-box-43"></div>
+            <div class="grid-box grid-box-44"></div>
+            <div class="grid-box grid-box-45"></div>
+            <div class="grid-box grid-box-46"></div>
+            <div class="grid-box grid-box-47"></div>
+            <div class="grid-box grid-box-48"></div>
+            <div class="grid-box grid-box-49"></div>
+
+            <div class="grid-box grid-box-50"></div>
+            <div class="grid-box grid-box-51"></div>
+            <div class="grid-box grid-box-52"></div>
+            <div class="grid-box grid-box-53"></div>
+            <div class="grid-box grid-box-54"></div>
+            <div class="grid-box grid-box-55"></div>
+            <div class="grid-box grid-box-56"></div>
+            <div class="grid-box grid-box-57"></div>
+            <div class="grid-box grid-box-58"></div>
+            <div class="grid-box grid-box-59"></div>
+
+            <div class="grid-box grid-box-60"></div>
+            <div class="grid-box grid-box-61"></div>
+            <div class="grid-box grid-box-62"></div>
+            <div class="grid-box grid-box-63"></div>
+            <div class="grid-box grid-box-64"></div>
+            <div class="grid-box grid-box-65"></div>
+            <div class="grid-box grid-box-66"></div>
+            <div class="grid-box grid-box-67"></div>
+            <div class="grid-box grid-box-68"></div>
+            <div class="grid-box grid-box-69"></div>
+
+            <div class="grid-box grid-box-70"></div>
+            <div class="grid-box grid-box-71"></div>
+            <div class="grid-box grid-box-72"></div>
+            <div class="grid-box grid-box-73"></div>
+            <div class="grid-box grid-box-74"></div>
+            <div class="grid-box grid-box-75"></div>
+            <div class="grid-box grid-box-76"></div>
+            <div class="grid-box grid-box-77"></div>
+            <div class="grid-box grid-box-78"></div>
+            <div class="grid-box grid-box-79"></div>
+
+            <div class="grid-box grid-box-80"></div>
+            <div class="grid-box grid-box-81"></div>
+            <div class="grid-box grid-box-82"></div>
+            <div class="grid-box grid-box-83"></div>
+            <div class="grid-box grid-box-84"></div>
+            <div class="grid-box grid-box-85"></div>
+            <div class="grid-box grid-box-86"></div>
+            <div class="grid-box grid-box-87"></div>
+            <div class="grid-box grid-box-88"></div>
+            <div class="grid-box grid-box-89"></div>
+
+            <div class="grid-box grid-box-90"></div>
+            <div class="grid-box grid-box-91"></div>
+            <div class="grid-box grid-box-92"></div>
+            <div class="grid-box grid-box-93"></div>
+            <div class="grid-box grid-box-94"></div>
+            <div class="grid-box grid-box-95"></div>
+            <div class="grid-box grid-box-96"></div>
+            <div class="grid-box grid-box-97"></div>
+            <div class="grid-box grid-box-98"></div>
+            <div class="grid-box grid-box-99"></div>
+          </div>
+        </div>
+      </div>
+      <div class="section section-bot">
+        <h1>Bot</h1>
+        <div class="bot-area-grid">
+          <div class="grid">
+            <div class="grid-box grid-box-00"></div>
+            <div class="grid-box grid-box-01"></div>
+            <div class="grid-box grid-box-02"></div>
+            <div class="grid-box grid-box-03"></div>
+            <div class="grid-box grid-box-04"></div>
+            <div class="grid-box grid-box-05"></div>
+            <div class="grid-box grid-box-06"></div>
+            <div class="grid-box grid-box-07"></div>
+            <div class="grid-box grid-box-08"></div>
+            <div class="grid-box grid-box-09"></div>
+
+            <div class="grid-box grid-box-10"></div>
+            <div class="grid-box grid-box-11"></div>
+            <div class="grid-box grid-box-12"></div>
+            <div class="grid-box grid-box-13"></div>
+            <div class="grid-box grid-box-14"></div>
+            <div class="grid-box grid-box-15"></div>
+            <div class="grid-box grid-box-16"></div>
+            <div class="grid-box grid-box-17"></div>
+            <div class="grid-box grid-box-18"></div>
+            <div class="grid-box grid-box-19"></div>
+
+            <div class="grid-box grid-box-20"></div>
+            <div class="grid-box grid-box-21"></div>
+            <div class="grid-box grid-box-22"></div>
+            <div class="grid-box grid-box-23"></div>
+            <div class="grid-box grid-box-24"></div>
+            <div class="grid-box grid-box-25"></div>
+            <div class="grid-box grid-box-26"></div>
+            <div class="grid-box grid-box-27"></div>
+            <div class="grid-box grid-box-28"></div>
+            <div class="grid-box grid-box-29"></div>
+
+            <div class="grid-box grid-box-30"></div>
+            <div class="grid-box grid-box-31"></div>
+            <div class="grid-box grid-box-32"></div>
+            <div class="grid-box grid-box-33"></div>
+            <div class="grid-box grid-box-34"></div>
+            <div class="grid-box grid-box-35"></div>
+            <div class="grid-box grid-box-36"></div>
+            <div class="grid-box grid-box-37"></div>
+            <div class="grid-box grid-box-38"></div>
+            <div class="grid-box grid-box-39"></div>
+
+            <div class="grid-box grid-box-40"></div>
+            <div class="grid-box grid-box-41"></div>
+            <div class="grid-box grid-box-42"></div>
+            <div class="grid-box grid-box-43"></div>
+            <div class="grid-box grid-box-44"></div>
+            <div class="grid-box grid-box-45"></div>
+            <div class="grid-box grid-box-46"></div>
+            <div class="grid-box grid-box-47"></div>
+            <div class="grid-box grid-box-48"></div>
+            <div class="grid-box grid-box-49"></div>
+
+            <div class="grid-box grid-box-50"></div>
+            <div class="grid-box grid-box-51"></div>
+            <div class="grid-box grid-box-52"></div>
+            <div class="grid-box grid-box-53"></div>
+            <div class="grid-box grid-box-54"></div>
+            <div class="grid-box grid-box-55"></div>
+            <div class="grid-box grid-box-56"></div>
+            <div class="grid-box grid-box-57"></div>
+            <div class="grid-box grid-box-58"></div>
+            <div class="grid-box grid-box-59"></div>
+
+            <div class="grid-box grid-box-60"></div>
+            <div class="grid-box grid-box-61"></div>
+            <div class="grid-box grid-box-62"></div>
+            <div class="grid-box grid-box-63"></div>
+            <div class="grid-box grid-box-64"></div>
+            <div class="grid-box grid-box-65"></div>
+            <div class="grid-box grid-box-66"></div>
+            <div class="grid-box grid-box-67"></div>
+            <div class="grid-box grid-box-68"></div>
+            <div class="grid-box grid-box-69"></div>
+
+            <div class="grid-box grid-box-70"></div>
+            <div class="grid-box grid-box-71"></div>
+            <div class="grid-box grid-box-72"></div>
+            <div class="grid-box grid-box-73"></div>
+            <div class="grid-box grid-box-74"></div>
+            <div class="grid-box grid-box-75"></div>
+            <div class="grid-box grid-box-76"></div>
+            <div class="grid-box grid-box-77"></div>
+            <div class="grid-box grid-box-78"></div>
+            <div class="grid-box grid-box-79"></div>
+
+            <div class="grid-box grid-box-80"></div>
+            <div class="grid-box grid-box-81"></div>
+            <div class="grid-box grid-box-82"></div>
+            <div class="grid-box grid-box-83"></div>
+            <div class="grid-box grid-box-84"></div>
+            <div class="grid-box grid-box-85"></div>
+            <div class="grid-box grid-box-86"></div>
+            <div class="grid-box grid-box-87"></div>
+            <div class="grid-box grid-box-88"></div>
+            <div class="grid-box grid-box-89"></div>
+
+            <div class="grid-box grid-box-90"></div>
+            <div class="grid-box grid-box-91"></div>
+            <div class="grid-box grid-box-92"></div>
+            <div class="grid-box grid-box-93"></div>
+            <div class="grid-box grid-box-94"></div>
+            <div class="grid-box grid-box-95"></div>
+            <div class="grid-box grid-box-96"></div>
+            <div class="grid-box grid-box-97"></div>
+            <div class="grid-box grid-box-98"></div>
+            <div class="grid-box grid-box-99"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <a href="https://github.com/aliflikescoding" target="_blank">
+        <h1>Aliflikescoding <i class="bi bi-github"></i></h1>
+      </a>
+    </footer>
+    <script type="module" src="./main.js"></script>
+  </body>
 </html>
