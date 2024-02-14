@@ -1,2 +1,2 @@
 import "./sass/main.scss";
-import "./modules/_pick";
+import "./modules/_game";

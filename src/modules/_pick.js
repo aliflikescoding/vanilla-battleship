@@ -1,16 +1,24 @@
-// pick buttons
-const buttonRotate = document.querySelector("#buttonRotate");
-const buttonStartGame = document.querySelector("#buttonStartGame");
-const buttonUndo = document.querySelector("#buttonUndo");
+const pick = (() => {
+  function getHorizontalClass (gridPosition, increment) {
+    let number = parseInt(gridPosition[10]); 
+    const start = gridPosition.substring(0, 10);
+    const end = gridPosition.substring(11);
+    const updatedNumber = (number + increment).toString();
+    return start + updatedNumber + end;
+  }
 
-//grids
-const grids = document.querySelectorAll(".pick-box");
+  function getVerticalClass (gridPosition, increment) {
+    let number = parseInt(gridPosition[9]); 
+    const start = gridPosition.substring(0, 9);
+    const end = gridPosition.substring(10);
+    const updatedNumber = (number + increment).toString();
+    return start + updatedNumber + end;
+  }
 
-grids.forEach((grid) => {
-  grid.addEventListener("mouseenter", () => {
-    
-  });
-  grid.addEventListener("mouseleave", () => {
-    
-  });
-});
+  return {
+    getHorizontalClass: getHorizontalClass,
+    getVerticalClass: getVerticalClass
+  };
+})();
+
+module.exports = pick
