@@ -20,18 +20,26 @@ buttonRotate.addEventListener("click", () => {
 pickGrids.forEach((grid) => {
   grid.addEventListener("mouseenter", () => {
     const gridPosition = grid.classList[1];
-    const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
-    classNames.forEach((className) => {
-      document.querySelector(`.${className}`).classList.add("pick-color");
-    });
-    grid.classList.add("pick-color");
+    if (pick.checkOutOfBounds(gridPosition, playerBoard.getRotate(), pick.type(playerBoard.getShipNumber())) == false) {
+      const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
+      classNames.forEach((className) => {
+        document.querySelector(`.${className}`).classList.add("pick-color");
+      });
+      grid.classList.add("pick-color");
+    } else {
+
+    }
   });
   grid.addEventListener("mouseleave", () => {
     const gridPosition = grid.classList[1];
-    const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
-    classNames.forEach((className) => {
-      document.querySelector(`.${className}`).classList.remove("pick-color");
-    });
-    grid.classList.remove("pick-color");
+    if (pick.checkOutOfBounds(gridPosition, playerBoard.getRotate(), pick.type(playerBoard.getShipNumber())) == false) {
+      const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
+      classNames.forEach((className) => {
+        document.querySelector(`.${className}`).classList.remove("pick-color");
+      });
+      grid.classList.remove("pick-color");
+    } else {
+
+    }
   });
 });

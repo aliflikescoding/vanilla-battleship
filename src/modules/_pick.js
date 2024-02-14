@@ -25,6 +25,26 @@ const pick = (() => {
     }
   }
 
+  function checkOutOfBounds (gridPosition, rotateStatus, shipType) {
+    if (rotateStatus == false) {
+      let number = parseInt(gridPosition[10]);
+      if (number + shipType > 9) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    } else {
+      let number = parseInt(gridPosition[9]);
+      if (number + shipType > 9) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  }
+
   function returnGridClasses (shipType, rotateStatus, gridPosition) {
     const classNames = [];
     if (shipType == 4) {
@@ -62,7 +82,8 @@ const pick = (() => {
     getHorizontalClass: getHorizontalClass,
     getVerticalClass: getVerticalClass,
     returnGridClasses: returnGridClasses,
-    type: type
+    type: type,
+    checkOutOfBounds: checkOutOfBounds,
   };
 })();
 
