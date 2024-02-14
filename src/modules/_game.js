@@ -10,12 +10,12 @@ const buttonStartGame = document.querySelector("#buttonStartGame");
 const buttonUndo = document.querySelector("#buttonUndo");
 
 //grids
-const grids = document.querySelectorAll(".pick-box");
+const pickGrids = document.querySelectorAll(".pick-box");
 
 const playerBoard = new GameBoard();
 const ships = 5;
 
-grids.forEach((grid) => {
+pickGrids.forEach((grid) => {
   grid.addEventListener("mouseenter", () => {
     const gridPosition = grid.classList[1];
     const test = document.querySelector(`.${pick.getVerticalClass(gridPosition, 1)}`)
