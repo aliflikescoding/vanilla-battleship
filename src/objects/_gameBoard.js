@@ -33,9 +33,17 @@ GameBoard.prototype.getShipArray = function () {
   return this.shipArray;
 };
 
+GameBoard.prototype.getShipNumber = function () {
+  return this.shipNumber;
+};
+
 // setters
 GameBoard.prototype.setGrid = function (grid) {
   return (this.grid = grid);
+};
+
+GameBoard.prototype.setShipNumber = function (shipNumber) {
+  return (this.shipNumber = shipNumber);
 };
 
 GameBoard.prototype.rotateShipPosition = function () {
