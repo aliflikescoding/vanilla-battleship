@@ -13,7 +13,9 @@ const buttonUndo = document.querySelector("#buttonUndo");
 const pickGrids = document.querySelectorAll(".pick-box");
 
 const playerBoard = new GameBoard();
-playerBoard.rotateShipPosition();
+buttonRotate.addEventListener("click", () => {
+  playerBoard.rotateShipPosition();
+})
 
 pickGrids.forEach((grid) => {
   grid.addEventListener("mouseenter", () => {
