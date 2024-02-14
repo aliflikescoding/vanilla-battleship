@@ -136,7 +136,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sas
   \******************************/
 /***/ (() => {
 
-eval("// pick buttons\nconst buttonRotate = document.querySelector(\"#buttonRotate\");\nconst buttonStartGame = document.querySelector(\"#buttonStartGame\");\nconst buttonUndo = document.querySelector(\"#buttonUndo\");\n\n//# sourceURL=webpack://battleship_project/./src/modules/_pick.js?");
+eval("// pick buttons\nconst buttonRotate = document.querySelector(\"#buttonRotate\");\nconst buttonStartGame = document.querySelector(\"#buttonStartGame\");\nconst buttonUndo = document.querySelector(\"#buttonUndo\");\n\n//grids\nconst grids = document.querySelectorAll(\".pick-box\");\n\n//# sourceURL=webpack://battleship_project/./src/modules/_pick.js?");
 
 /***/ })
 
