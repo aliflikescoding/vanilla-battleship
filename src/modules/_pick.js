@@ -15,9 +15,19 @@ const pick = (() => {
     return start + updatedNumber + end;
   }
 
-  function returnGridClasses (shipNum, rotateStatus, gridPosition) {
-    const classNames = [];
+  function type (shipNum) {
     if (shipNum == 0 || shipNum == 1) {
+      return 4;
+    } else if (shipNum == 2 || shipNum == 3) {
+      return 3;
+    } else {
+      return 2;
+    }
+  }
+
+  function returnGridClasses (shipType, rotateStatus, gridPosition) {
+    const classNames = [];
+    if (shipType == 4) {
       for (let i = 1; i <= 3; i++) {
         if (rotateStatus == false) {
           classNames.push(pick.getHorizontalClass(gridPosition, i));
@@ -26,7 +36,7 @@ const pick = (() => {
           classNames.push(pick.getVerticalClass(gridPosition, i));
         }
       }
-    } else if (shipNum == 2 || shipNum == 3) {
+    } else if (shipType == 3) {
       for (let i = 1; i <= 2; i++) {
         if (rotateStatus == false) {
           classNames.push(pick.getHorizontalClass(gridPosition, i));
@@ -35,7 +45,7 @@ const pick = (() => {
           classNames.push(pick.getVerticalClass(gridPosition, i));
         }
       }
-    } else {
+    } else if (shipType == 2) {
       for (let i = 1; i <= 1; i++) {
         if (rotateStatus == false) {
           classNames.push(pick.getHorizontalClass(gridPosition, i));
@@ -51,7 +61,8 @@ const pick = (() => {
   return {
     getHorizontalClass: getHorizontalClass,
     getVerticalClass: getVerticalClass,
-    returnGridClasses: returnGridClasses
+    returnGridClasses: returnGridClasses,
+    type: type
   };
 })();
 
