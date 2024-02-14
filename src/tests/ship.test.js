@@ -1,4 +1,4 @@
-const Ship = require('../_ship');
+const Ship = require('../objects/_ship');
 
 test("get ships hit", () => {
   const ship = new Ship();

@@ -1,4 +1,4 @@
-const Ship_2 = require('../_ship_2');
+const Ship_2 = require('../objects/_ship_2');
 
 test("get ship length", () => {
   const ship = new Ship_2();

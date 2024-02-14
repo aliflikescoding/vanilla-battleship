@@ -1,10 +1,10 @@
-const Ship = require('./_ship');
+const Ship = require("./_ship");
 
 class Ship_4 extends Ship {
   constructor() {
-    super(); 
+    super();
     this.length = 4;
   }
 }
 
-module.exports = Ship_4
+module.exports = Ship_4;

@@ -1,20 +1,20 @@
-const Ship_2 = require("./_ship_2")
-const Ship_3 = require("./_ship_3")
-const Ship_4 = require("./_ship_4")
+const Ship_2 = require("./_ship_2");
+const Ship_3 = require("./_ship_3");
+const Ship_4 = require("./_ship_4");
 
 function GameBoard() {
   this.grid = [
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    ];
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  ];
   this.rotate = false;
   this.shipArray = [];
   this.shipNumber = this.shipArray.length;
@@ -31,53 +31,68 @@ GameBoard.prototype.getGrid = function () {
 
 GameBoard.prototype.getShipArray = function () {
   return this.shipArray;
-}
+};
 
 // setters
 GameBoard.prototype.setGrid = function (grid) {
-  return this.grid = grid;
+  return (this.grid = grid);
 };
 
 GameBoard.prototype.rotateShipPosition = function () {
   if (this.rotate === false) {
     this.rotate = true;
-  }
-  else {
+  } else {
     this.rotate = false;
   }
 };
 
-GameBoard.prototype.placeHorizontal = function (Xcoordinates, Ycoordinates, shipType) {
+GameBoard.prototype.placeHorizontal = function (
+  Xcoordinates,
+  Ycoordinates,
+  shipType
+) {
   let array = this.getGrid();
-  for (let i = 0; i <= shipType-1; i++) {
-    array[Ycoordinates][Xcoordinates+i] = 1;
+  for (let i = 0; i <= shipType - 1; i++) {
+    array[Ycoordinates][Xcoordinates + i] = 1;
   }
   this.setGrid(array);
 };
 
-GameBoard.prototype.placeVertical = function (Xcoordinates, Ycoordinates, shipType) {
+GameBoard.prototype.placeVertical = function (
+  Xcoordinates,
+  Ycoordinates,
+  shipType
+) {
   let array = this.getGrid();
-  for (let i = 0; i <= shipType-1; i++) {
-    array[Ycoordinates+i][Xcoordinates] = 1;
+  for (let i = 0; i <= shipType - 1; i++) {
+    array[Ycoordinates + i][Xcoordinates] = 1;
   }
   this.setGrid(array);
 };
 
-GameBoard.prototype.getHorizontalCoordinants = function (Xcoordinates, Ycoordinates, shipType) {
+GameBoard.prototype.getHorizontalCoordinants = function (
+  Xcoordinates,
+  Ycoordinates,
+  shipType
+) {
   let coordinates = [];
-  for (let i = 0; i <= shipType-1; i++) {
+  for (let i = 0; i <= shipType - 1; i++) {
     coordinates.push([Xcoordinates + i, Ycoordinates]);
   }
   return coordinates;
-}
+};
 
-GameBoard.prototype.getVerticalCoordinants = function (Xcoordinates, Ycoordinates, shipType) {
+GameBoard.prototype.getVerticalCoordinants = function (
+  Xcoordinates,
+  Ycoordinates,
+  shipType
+) {
   let coordinates = [];
-  for (let i = 0; i <= shipType-1; i++) {
-    coordinates.push([Xcoordinates, Ycoordinates+i]);
+  for (let i = 0; i <= shipType - 1; i++) {
+    coordinates.push([Xcoordinates, Ycoordinates + i]);
   }
   return coordinates;
-}
+};
 
 GameBoard.prototype.returnShipObject = function (shipType) {
   let ship;
@@ -89,21 +104,28 @@ GameBoard.prototype.returnShipObject = function (shipType) {
     ship = new Ship_4();
   }
   return ship;
-}  
+};
 
-GameBoard.prototype.placeShip = function (Xcoordinates, Ycoordinates, shipType) {
+GameBoard.prototype.placeShip = function (
+  Xcoordinates,
+  Ycoordinates,
+  shipType
+) {
   let array = this.shipArray;
   let arrayTwo = [];
   if (this.rotate == false) {
     this.placeHorizontal(Xcoordinates, Ycoordinates, shipType);
     arrayTwo.push(this.returnShipObject(shipType));
-    arrayTwo.push(this.getHorizontalCoordinants(Xcoordinates, Ycoordinates, shipType));
+    arrayTwo.push(
+      this.getHorizontalCoordinants(Xcoordinates, Ycoordinates, shipType)
+    );
     array.push(arrayTwo);
-  }
-  else {
+  } else {
     this.placeVertical(Xcoordinates, Ycoordinates, shipType);
     arrayTwo.push(this.returnShipObject(shipType));
-    arrayTwo.push(this.getVerticalCoordinants(Xcoordinates, Ycoordinates, shipType));
+    arrayTwo.push(
+      this.getVerticalCoordinants(Xcoordinates, Ycoordinates, shipType)
+    );
     array.push(arrayTwo);
   }
   this.shipArray = array;
@@ -113,7 +135,7 @@ GameBoard.prototype.undoPlacement = function () {
   let grid = this.grid;
   let shipArray = this.shipArray;
 
-  let lastElement = shipArray[shipArray.length-1];
+  let lastElement = shipArray[shipArray.length - 1];
   let lastElementCoordinants = lastElement[1];
   lastElementCoordinants.forEach((cords) => {
     let x = cords[0];
@@ -123,9 +145,12 @@ GameBoard.prototype.undoPlacement = function () {
   shipArray.pop();
   this.shipArray = shipArray;
   this.grid = grid;
-}
+};
 
-GameBoard.prototype.getPositionShipIfHit = function (Xcoordinates, Ycoordinates) {
+GameBoard.prototype.getPositionShipIfHit = function (
+  Xcoordinates,
+  Ycoordinates
+) {
   shipArray = this.getShipArray();
   let shipIndex;
   shipArray.forEach((shipPair, index) => {
@@ -136,10 +161,10 @@ GameBoard.prototype.getPositionShipIfHit = function (Xcoordinates, Ycoordinates)
       if (x == Xcoordinates && y == Ycoordinates) {
         shipIndex = index;
       }
-    })
-  })
+    });
+  });
   return shipIndex;
-}
+};
 
 GameBoard.prototype.removeShipIfSunk = function (shipPosition) {
   let shipArray = this.getShipArray();
@@ -147,10 +172,11 @@ GameBoard.prototype.removeShipIfSunk = function (shipPosition) {
     shipArray.splice(shipPosition, 1);
   }
   this.shipArray = shipArray;
-}
+};
 
 GameBoard.prototype.receiveAttack = function (Xcoordinates, Ycoordinates) {
-  let grid = this.getGrid(), shipArray = this.getShipArray();
+  let grid = this.getGrid(),
+    shipArray = this.getShipArray();
   if (grid[Ycoordinates][Xcoordinates] === 1) {
     let shipPosition = this.getPositionShipIfHit(Xcoordinates, Ycoordinates);
     shipArray[shipPosition][0].hitShip();
@@ -160,4 +186,4 @@ GameBoard.prototype.receiveAttack = function (Xcoordinates, Ycoordinates) {
   this.setGrid(grid);
 };
 
-module.exports = GameBoard
+module.exports = GameBoard;

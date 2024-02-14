@@ -1,4 +1,4 @@
-const GameBoard = require("./../_gameBoard");
+const GameBoard = require("./../objects/_gameBoard");
 
 test("placing correctly horizontally 1", () => {
   const gameBoard = new GameBoard();
