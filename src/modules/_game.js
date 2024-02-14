@@ -13,19 +13,23 @@ const buttonUndo = document.querySelector("#buttonUndo");
 const pickGrids = document.querySelectorAll(".pick-box");
 
 const playerBoard = new GameBoard();
-const ships = 5;
+playerBoard.rotateShipPosition();
 
 pickGrids.forEach((grid) => {
   grid.addEventListener("mouseenter", () => {
     const gridPosition = grid.classList[1];
-    const test = document.querySelector(`.${pick.getVerticalClass(gridPosition, 1)}`)
+    const classNames = pick.returnGridClasses(playerBoard.getShipNumber(), playerBoard.getRotate(), gridPosition);
+    classNames.forEach((className) => {
+      document.querySelector(`.${className}`).classList.add("pick-color");
+    });
     grid.classList.add("pick-color");
-    test.classList.add("pick-color");
   });
   grid.addEventListener("mouseleave", () => {
     const gridPosition = grid.classList[1];
-    const test = document.querySelector(`.${pick.getVerticalClass(gridPosition, 1)}`)
-    test.classList.remove("pick-color");
+    const classNames = pick.returnGridClasses(playerBoard.getShipNumber(), playerBoard.getRotate(), gridPosition);
+    classNames.forEach((className) => {
+      document.querySelector(`.${className}`).classList.remove("pick-color");
+    });
     grid.classList.remove("pick-color");
   });
 });
