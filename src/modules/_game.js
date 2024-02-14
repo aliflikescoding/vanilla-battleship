@@ -28,8 +28,9 @@ pickGrids.forEach((grid) => {
       grid.classList.add("pick-color");
     } else {
       const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
-      let popNum = pick.getPopNumber(gridPosition, pick.type(playerBoard.getShipNumber()));
+      let popNum = pick.getPopNumber(gridPosition, pick.type(playerBoard.getShipNumber()), playerBoard.getRotate());
       for (let i = 0; i < popNum; i++) {
+        console.log("hey I'm running");
         classNames.pop();
       }
       if (classNames.length > 0) {
@@ -50,7 +51,7 @@ pickGrids.forEach((grid) => {
       grid.classList.remove("pick-color");
     } else {
       const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
-      let popNum = pick.getPopNumber(gridPosition, pick.type(playerBoard.getShipNumber()));
+      let popNum = pick.getPopNumber(gridPosition, pick.type(playerBoard.getShipNumber()), playerBoard.getRotate());
       for (let i = 0; i < popNum; i++) {
         classNames.pop();
       }

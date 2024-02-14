@@ -45,9 +45,15 @@ const pick = (() => {
     }
   }
 
-  function getPopNumber (gridPosition, shipType) {
-    let number = parseInt(gridPosition[10]);
-    return (number-1 + shipType) - 9;
+  function getPopNumber (gridPosition, shipType, rotateStatus) {
+    if (rotateStatus == false) {
+      let number = parseInt(gridPosition[10]);
+      return (number-1 + shipType) - 9;
+    }
+    else {
+      let number = parseInt(gridPosition[9]);
+      return (number-1 + shipType) - 9;
+    }
   }
 
   function returnGridClasses (shipType, rotateStatus, gridPosition) {
