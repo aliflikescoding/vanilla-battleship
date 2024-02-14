@@ -28,7 +28,7 @@ const pick = (() => {
   function checkOutOfBounds (gridPosition, rotateStatus, shipType) {
     if (rotateStatus == false) {
       let number = parseInt(gridPosition[10]);
-      if (number + shipType > 9) {
+      if (number-1 + shipType > 9) {
         return true;
       }
       else {
@@ -36,13 +36,18 @@ const pick = (() => {
       }
     } else {
       let number = parseInt(gridPosition[9]);
-      if (number + shipType > 9) {
+      if (number-1 + shipType > 9) {
         return true;
       }
       else {
         return false;
       }
     }
+  }
+
+  function getPopNumber (gridPosition, shipType) {
+    let number = parseInt(gridPosition[10]);
+    return (number-1 + shipType) - 9;
   }
 
   function returnGridClasses (shipType, rotateStatus, gridPosition) {
@@ -84,6 +89,7 @@ const pick = (() => {
     returnGridClasses: returnGridClasses,
     type: type,
     checkOutOfBounds: checkOutOfBounds,
+    getPopNumber: getPopNumber
   };
 })();
 

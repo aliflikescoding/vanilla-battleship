@@ -27,7 +27,17 @@ pickGrids.forEach((grid) => {
       });
       grid.classList.add("pick-color");
     } else {
-
+      const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
+      let popNum = pick.getPopNumber(gridPosition, pick.type(playerBoard.getShipNumber()));
+      for (let i = 0; i < popNum; i++) {
+        classNames.pop();
+      }
+      if (classNames.length > 0) {
+        classNames.forEach((className) => {
+          document.querySelector(`.${className}`).classList.add("pick-danger");
+        });
+      }
+      grid.classList.add("pick-danger");
     }
   });
   grid.addEventListener("mouseleave", () => {
@@ -39,7 +49,17 @@ pickGrids.forEach((grid) => {
       });
       grid.classList.remove("pick-color");
     } else {
-
+      const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
+      let popNum = pick.getPopNumber(gridPosition, pick.type(playerBoard.getShipNumber()));
+      for (let i = 0; i < popNum; i++) {
+        classNames.pop();
+      }
+      if (classNames.length > 0) {
+        classNames.forEach((className) => {
+          document.querySelector(`.${className}`).classList.remove("pick-danger");
+        });
+      }
+      grid.classList.remove("pick-danger");
     }
   });
 });
