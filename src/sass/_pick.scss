@@ -10,3 +10,8 @@
   color: $danger;
   font-size: 1.5rem;
 }
+
+.selected-grid {
+  background-color: $success;
+  pointer-events: none;
+}

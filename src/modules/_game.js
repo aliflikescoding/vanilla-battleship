@@ -66,14 +66,17 @@ pickGrids.forEach((grid) => {
     const gridPosition = grid.classList[1];
     const errorText = document.querySelector("#error-text");
     if (pick.checkOutOfBounds(gridPosition, playerBoard.getRotate(), pick.type(playerBoard.getShipNumber())) == false) {
-
+      const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
+      classNames.forEach((className) => {
+        document.querySelector(`.${className}`).classList.add("selected-grid");
+      });
+      grid.classList.add("selected-grid");
     }
     else {
       errorText.textContent = "YOU ARE OUT OF BOUNDS";
       setTimeout(() => {
         errorText.textContent = "";
       }, 1500);
-      
     }
   });
 });
