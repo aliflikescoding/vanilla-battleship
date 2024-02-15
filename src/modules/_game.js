@@ -30,7 +30,6 @@ pickGrids.forEach((grid) => {
       const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
       let popNum = pick.getPopNumber(gridPosition, pick.type(playerBoard.getShipNumber()), playerBoard.getRotate());
       for (let i = 0; i < popNum; i++) {
-        console.log("hey I'm running");
         classNames.pop();
       }
       if (classNames.length > 0) {
