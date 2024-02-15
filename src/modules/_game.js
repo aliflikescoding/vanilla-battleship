@@ -62,4 +62,7 @@ pickGrids.forEach((grid) => {
       grid.classList.remove("pick-danger");
     }
   });
+  grid.addEventListener("click", () => {
+    
+  });
 });
