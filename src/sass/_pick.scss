@@ -5,3 +5,8 @@
 .pick-danger {
   background: $danger;
 }
+
+#error-text {
+  color: $danger;
+  font-size: 1.5rem;
+}
