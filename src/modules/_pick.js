@@ -45,6 +45,22 @@ const pick = (() => {
     }
   }
 
+  function checkPlacement(classNames) {
+    const arr = [];
+    classNames.forEach(className => {
+      const element = document.querySelector(`.${className}`);
+      if (element !== null) {
+        arr.push(element.classList.contains("selected-grid"));
+      }
+    });
+    if (arr.includes(true)) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
   function getPopNumber (gridPosition, shipType, rotateStatus) {
     if (rotateStatus == false) {
       let number = parseInt(gridPosition[10]);
@@ -95,7 +111,8 @@ const pick = (() => {
     returnGridClasses: returnGridClasses,
     type: type,
     checkOutOfBounds: checkOutOfBounds,
-    getPopNumber: getPopNumber
+    getPopNumber: getPopNumber,
+    checkPlacement: checkPlacement
   };
 })();
 
