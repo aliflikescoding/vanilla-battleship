@@ -107,13 +107,21 @@ pickGrids.forEach((grid) => {
   grid.addEventListener("click", () => {
     const gridPosition = grid.classList[1];
     const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
+    const placementStatus = pick.checkPlacement(classNames);
     const outOfBoundsStatus = pick.checkOutOfBounds(gridPosition, playerBoard.getRotate(), pick.type(playerBoard.getShipNumber()));
     const errorText = document.querySelector("#error-text");
     if (outOfBoundsStatus == false) {
-      classNames.forEach((className) => {
-        document.querySelector(`.${className}`).classList.add("selected-grid");
-      });
-      grid.classList.add("selected-grid");
+      if (placementStatus == false) {
+        errorText.textContent = "THERE IS A SHIP PLACED THERE";
+        setTimeout(() => {
+          errorText.textContent = "";
+        }, 1500);
+      } else {
+        classNames.forEach((className) => {
+          document.querySelector(`.${className}`).classList.add("selected-grid");
+        });
+        grid.classList.add("selected-grid");
+      }
     }
     else {
       errorText.textContent = "YOU ARE OUT OF BOUNDS";
