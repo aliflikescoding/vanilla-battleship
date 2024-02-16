@@ -20,15 +20,15 @@ buttonRotate.addEventListener("click", () => {
 pickGrids.forEach((grid) => {
   grid.addEventListener("mouseenter", () => {
     const gridPosition = grid.classList[1];
-    if (pick.checkOutOfBounds(gridPosition, playerBoard.getRotate(), pick.type(playerBoard.getShipNumber())) == false) {
-      const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
+    const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
+    const outOfBoundsStatus = pick.checkOutOfBounds(gridPosition, playerBoard.getRotate(), pick.type(playerBoard.getShipNumber()));
+    const popNum = pick.getPopNumber(gridPosition, pick.type(playerBoard.getShipNumber()), playerBoard.getRotate());
+    if (outOfBoundsStatus == false) {
       classNames.forEach((className) => {
         document.querySelector(`.${className}`).classList.add("pick-color");
       });
       grid.classList.add("pick-color");
     } else {
-      const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
-      let popNum = pick.getPopNumber(gridPosition, pick.type(playerBoard.getShipNumber()), playerBoard.getRotate());
       for (let i = 0; i < popNum; i++) {
         classNames.pop();
       }
@@ -42,15 +42,15 @@ pickGrids.forEach((grid) => {
   });
   grid.addEventListener("mouseleave", () => {
     const gridPosition = grid.classList[1];
-    if (pick.checkOutOfBounds(gridPosition, playerBoard.getRotate(), pick.type(playerBoard.getShipNumber())) == false) {
-      const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
+    const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
+    const outOfBoundsStatus = pick.checkOutOfBounds(gridPosition, playerBoard.getRotate(), pick.type(playerBoard.getShipNumber()));
+    const popNum = pick.getPopNumber(gridPosition, pick.type(playerBoard.getShipNumber()), playerBoard.getRotate());
+    if (outOfBoundsStatus == false) {
       classNames.forEach((className) => {
         document.querySelector(`.${className}`).classList.remove("pick-color");
       });
       grid.classList.remove("pick-color");
     } else {
-      const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
-      let popNum = pick.getPopNumber(gridPosition, pick.type(playerBoard.getShipNumber()), playerBoard.getRotate());
       for (let i = 0; i < popNum; i++) {
         classNames.pop();
       }
@@ -64,9 +64,10 @@ pickGrids.forEach((grid) => {
   });
   grid.addEventListener("click", () => {
     const gridPosition = grid.classList[1];
+    const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
+    const outOfBoundsStatus = pick.checkOutOfBounds(gridPosition, playerBoard.getRotate(), pick.type(playerBoard.getShipNumber()));
     const errorText = document.querySelector("#error-text");
-    if (pick.checkOutOfBounds(gridPosition, playerBoard.getRotate(), pick.type(playerBoard.getShipNumber())) == false) {
-      const classNames = pick.returnGridClasses(pick.type(playerBoard.getShipNumber()), playerBoard.getRotate(), gridPosition);
+    if (outOfBoundsStatus == false) {
       classNames.forEach((className) => {
         document.querySelector(`.${className}`).classList.add("selected-grid");
       });
