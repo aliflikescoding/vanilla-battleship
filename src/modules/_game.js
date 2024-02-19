@@ -38,45 +38,50 @@ pickGrids.forEach((grid) => {
       pick.type(count),
       playerBoard.getRotate()
     );
-    if (outOfBoundsStatus == false) {
-      if (placementStatus == false) {
-        classNames.forEach((className) => {
-          if (document.querySelector(`.${className}`) !== null) {
-            document
-              .querySelector(`.${className}`)
-              .classList.add("pick-danger");
-          }
-        });
-        grid.classList.add("pick-danger");
-      } else {
-        classNames.forEach((className) => {
-          document.querySelector(`.${className}`).classList.add("pick-color");
-        });
-        grid.classList.add("pick-color");
-      }
-    } else {
-      if (placementStatus == false) {
-        classNames.forEach((className) => {
-          if (document.querySelector(`.${className}`) !== null) {
-            document
-              .querySelector(`.${className}`)
-              .classList.add("pick-danger");
-          }
-        });
-        grid.classList.add("pick-danger");
-      } else {
-        for (let i = 0; i < popNum; i++) {
-          classNames.pop();
-        }
-        if (classNames.length > 0) {
+    if (pick.checkShipAmount(count) === true) {
+      if (outOfBoundsStatus == false) {
+        if (placementStatus == false) {
           classNames.forEach((className) => {
-            document
-              .querySelector(`.${className}`)
-              .classList.add("pick-danger");
+            if (document.querySelector(`.${className}`) !== null) {
+              document
+                .querySelector(`.${className}`)
+                .classList.add("pick-danger");
+            }
           });
+          grid.classList.add("pick-danger");
+        } else {
+          classNames.forEach((className) => {
+            document.querySelector(`.${className}`).classList.add("pick-color");
+          });
+          grid.classList.add("pick-color");
         }
-        grid.classList.add("pick-danger");
+      } else {
+        if (placementStatus == false) {
+          classNames.forEach((className) => {
+            if (document.querySelector(`.${className}`) !== null) {
+              document
+                .querySelector(`.${className}`)
+                .classList.add("pick-danger");
+            }
+          });
+          grid.classList.add("pick-danger");
+        } else {
+          for (let i = 0; i < popNum; i++) {
+            classNames.pop();
+          }
+          if (classNames.length > 0) {
+            classNames.forEach((className) => {
+              document
+                .querySelector(`.${className}`)
+                .classList.add("pick-danger");
+            });
+          }
+          grid.classList.add("pick-danger");
+        }
       }
+    }
+    else {
+      grid.classList.add("pick-danger");
     }
   });
   grid.addEventListener("mouseleave", () => {
@@ -97,47 +102,52 @@ pickGrids.forEach((grid) => {
       pick.type(count),
       playerBoard.getRotate()
     );
-    if (outOfBoundsStatus == false) {
-      if (placementStatus == false) {
-        classNames.forEach((className) => {
-          if (document.querySelector(`.${className}`) !== null) {
-            document
-              .querySelector(`.${className}`)
-              .classList.remove("pick-danger");
-          }
-        });
-        grid.classList.remove("pick-danger");
-      } else {
-        classNames.forEach((className) => {
-          document
-            .querySelector(`.${className}`)
-            .classList.remove("pick-color");
-        });
-        grid.classList.remove("pick-color");
-      }
-    } else {
-      if (placementStatus == false) {
-        classNames.forEach((className) => {
-          if (document.querySelector(`.${className}`) !== null) {
-            document
-              .querySelector(`.${className}`)
-              .classList.remove("pick-danger");
-          }
-        });
-        grid.classList.remove("pick-danger");
-      } else {
-        for (let i = 0; i < popNum; i++) {
-          classNames.pop();
-        }
-        if (classNames.length > 0) {
+    if (pick.checkShipAmount(count) === true) {
+      if (outOfBoundsStatus == false) {
+        if (placementStatus == false) {
+          classNames.forEach((className) => {
+            if (document.querySelector(`.${className}`) !== null) {
+              document
+                .querySelector(`.${className}`)
+                .classList.remove("pick-danger");
+            }
+          });
+          grid.classList.remove("pick-danger");
+        } else {
           classNames.forEach((className) => {
             document
               .querySelector(`.${className}`)
-              .classList.remove("pick-danger");
+              .classList.remove("pick-color");
           });
+          grid.classList.remove("pick-color");
         }
-        grid.classList.remove("pick-danger");
+      } else {
+        if (placementStatus == false) {
+          classNames.forEach((className) => {
+            if (document.querySelector(`.${className}`) !== null) {
+              document
+                .querySelector(`.${className}`)
+                .classList.remove("pick-danger");
+            }
+          });
+          grid.classList.remove("pick-danger");
+        } else {
+          for (let i = 0; i < popNum; i++) {
+            classNames.pop();
+          }
+          if (classNames.length > 0) {
+            classNames.forEach((className) => {
+              document
+                .querySelector(`.${className}`)
+                .classList.remove("pick-danger");
+            });
+          }
+          grid.classList.remove("pick-danger");
+        }
       }
+    }
+    else {
+      grid.classList.remove("pick-danger");
     }
   });
   grid.addEventListener("click", () => {
@@ -161,17 +171,24 @@ pickGrids.forEach((grid) => {
           errorText.textContent = "";
         }, 1500);
       } else {
-        classNames.forEach((className) => {
-          document
-            .querySelector(`.${className}`)
-            .classList.add("selected-grid");
-        });
-        grid.classList.add("selected-grid");
-        const x = parseInt(gridPosition[10]);
-        const y = parseInt(gridPosition[9]);
-        const shipType = pick.type(count);
-        playerBoard.placeShip(x, y, shipType);
-        count += 1;
+        if (pick.checkShipAmount(count) === true) {
+          classNames.forEach((className) => {
+            document
+              .querySelector(`.${className}`)
+              .classList.add("selected-grid");
+          });
+          grid.classList.add("selected-grid");
+          const x = parseInt(gridPosition[10]);
+          const y = parseInt(gridPosition[9]);
+          const shipType = pick.type(count);
+          playerBoard.placeShip(x, y, shipType);
+          count += 1;
+        } else {
+          errorText.textContent = "YOUR SHIPS ARE ALL PLACED";
+          setTimeout(() => {
+            errorText.textContent = "";
+          }, 1500);
+        }
       }
     } else {
       errorText.textContent = "YOU ARE OUT OF BOUNDS";

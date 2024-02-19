@@ -44,7 +44,7 @@ const pick = (() => {
   }
 
   function checkShipAmount(amount) {
-    if (amount > 5) {
+    if (amount > 4) {
       return false;
     } else {
       return true;
