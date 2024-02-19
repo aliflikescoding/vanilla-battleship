@@ -19,6 +19,32 @@ buttonRotate.addEventListener("click", () => {
   playerBoard.rotateShipPosition();
 });
 
+buttonUndo.addEventListener("click", () => {
+  const errorText = document.querySelector("#error-text");
+  if (playerBoard.getShipArray().length > 0) {
+    const lastElmt =
+      playerBoard.getShipArray()[playerBoard.getShipArray().length - 1];
+    const shipCoords = lastElmt[1];
+    shipCoords.forEach((cords) => {
+      const x = cords[0];
+      const y = cords[1];
+      document
+        .querySelector(`.grid-box-${y}${x}`)
+        .classList.remove("selected-grid");
+        document
+        .querySelector(`.grid-box-${y}${x}`)
+        .classList.remove("pick-color");
+    });
+    playerBoard.undoPlacement();
+    count -= 1;
+  } else {
+    errorText.textContent = "THERE ARE NO SHIPS ON THE BOARD";
+    setTimeout(() => {
+      errorText.textContent = "";
+    }, 1500);
+  }
+});
+
 pickGrids.forEach((grid) => {
   grid.addEventListener("mouseenter", () => {
     const gridPosition = grid.classList[1];
@@ -79,8 +105,7 @@ pickGrids.forEach((grid) => {
           grid.classList.add("pick-danger");
         }
       }
-    }
-    else {
+    } else {
       grid.classList.add("pick-danger");
     }
   });
@@ -145,8 +170,7 @@ pickGrids.forEach((grid) => {
           grid.classList.remove("pick-danger");
         }
       }
-    }
-    else {
+    } else {
       grid.classList.remove("pick-danger");
     }
   });
