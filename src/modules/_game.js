@@ -16,6 +16,7 @@ const shipTypeText = document.querySelector("#shipTypeText");
 
 //grids
 const pickGrids = document.querySelectorAll(".pick-box");
+const botGrids = document.querySelectorAll(".bot-box");
 
 //pick area
 const blackBackground = document.querySelector(".black-background");
@@ -56,11 +57,13 @@ buttonStartGame.addEventListener("click", () => {
     pickArea.classList.add("hidden");
     const playerArray = playerBoard.getShipArray();
     playerArray.forEach((shipPair) => {
-      shipPair[1].forEach(coords => {
+      shipPair[1].forEach((coords) => {
         const x = coords[0];
         const y = coords[1];
-        document.querySelector(`.player-box + .grid-box-${y}${x}`).classList.add("ship-color");
-      })
+        document
+          .querySelector(`.player-box + .grid-box-${y}${x}`)
+          .classList.add("ship-color");
+      });
     });
   } else {
     let stringVar;
@@ -283,5 +286,11 @@ pickGrids.forEach((grid) => {
         errorText.textContent = "";
       }, 1500);
     }
+  });
+});
+
+botGrids.forEach((grid) => {
+  grid.addEventListener("click", () => {
+    grid.classList.add("attacked");
   });
 });

@@ -11,3 +11,8 @@
 .ship-color {
   background-color: $success;
 }
+
+.attacked {
+  background-color: $danger;
+  pointer-events: none;
+}
