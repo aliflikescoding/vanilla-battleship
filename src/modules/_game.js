@@ -16,7 +16,20 @@ const playerBoard = new GameBoard();
 let count = 0;
 
 buttonStartGame.addEventListener("click", () => {
-  
+  const errorText = document.querySelector("#error-text");
+  if (count > 4) {
+  } else {
+    let stringVar;
+    if (count > 1) {
+      stringVar = `YOU STILL HAVE ${5 - count} SHIP TO PLACE`;
+    } else {
+      stringVar = `YOU STILL HAVE ${5 - count} SHIPS TO PLACE`;
+    }
+    errorText.textContent = stringVar;
+    setTimeout(() => {
+      errorText.textContent = "";
+    }, 1500);
+  }
 });
 
 buttonRotate.addEventListener("click", () => {
@@ -35,7 +48,7 @@ buttonUndo.addEventListener("click", () => {
       document
         .querySelector(`.grid-box-${y}${x}`)
         .classList.remove("selected-grid");
-        document
+      document
         .querySelector(`.grid-box-${y}${x}`)
         .classList.remove("pick-color");
     });
