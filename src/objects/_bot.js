@@ -24,4 +24,4 @@ Bot.prototype.reserveSpot = function () {
 
 }
 
-module.exports = Ship
+module.exports = Bot
