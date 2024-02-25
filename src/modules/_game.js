@@ -15,6 +15,10 @@ const pickGrids = document.querySelectorAll(".pick-box");
 const playerBoard = new GameBoard();
 let count = 0;
 
+buttonStartGame.addEventListener("click", () => {
+  
+});
+
 buttonRotate.addEventListener("click", () => {
   playerBoard.rotateShipPosition();
 });
