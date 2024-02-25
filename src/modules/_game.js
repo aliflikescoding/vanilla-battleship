@@ -23,6 +23,7 @@ const blackBackground = document.querySelector(".black-background");
 const pickArea = document.querySelector(".pick-area");
 
 const playerBoard = new GameBoard();
+const botBoard = new GameBoard();
 let count = 0;
 
 function shipTypeTextChange() {
