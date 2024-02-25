@@ -9,11 +9,32 @@ const buttonRotate = document.querySelector("#buttonRotate");
 const buttonStartGame = document.querySelector("#buttonStartGame");
 const buttonUndo = document.querySelector("#buttonUndo");
 
+// pick error boat text
+const boatTypeText = document.querySelector("#boatTypeText");
+const shipPlacementText = document.querySelector("#shipPlacementText");
+
 //grids
 const pickGrids = document.querySelectorAll(".pick-box");
 
 const playerBoard = new GameBoard();
 let count = 0;
+
+function shipTypeTextChange() {
+  if (count == 0) {
+    boatTypeText.textContent = "Carrier";
+  } else if (count == 1) {
+    boatTypeText.textContent = "Battleship";
+  } else if (count == 2) {
+    boatTypeText.textContent = "Destroyer";
+  } else if (count == 3) {
+    boatTypeText.textContent = "Submarine";
+  } else if (count == 4) {
+    boatTypeText.textContent = "Patrol Boat";
+  } else {
+    shipPlacementText.textContent = "Thats it your all set to start the game!";
+    shipPlacementText.classList.add("all-set");
+  }
+}
 
 buttonStartGame.addEventListener("click", () => {
   const errorText = document.querySelector("#error-text");
@@ -224,6 +245,7 @@ pickGrids.forEach((grid) => {
           const shipType = pick.type(count);
           playerBoard.placeShip(x, y, shipType);
           count += 1;
+          shipTypeTextChange();
         } else {
           errorText.textContent = "YOUR SHIPS ARE ALL PLACED";
           setTimeout(() => {
