@@ -75,6 +75,7 @@ buttonUndo.addEventListener("click", () => {
     });
     playerBoard.undoPlacement();
     count -= 1;
+    shipTypeTextChange();
   } else {
     errorText.textContent = "THERE ARE NO SHIPS ON THE BOARD";
     setTimeout(() => {
