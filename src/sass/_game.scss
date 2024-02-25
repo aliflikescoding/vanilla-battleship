@@ -1,0 +1,9 @@
+.player-box {
+  cursor: default;
+}
+
+.bot-box {
+  &:hover {
+    background-color: $pick-color;
+  }
+}
