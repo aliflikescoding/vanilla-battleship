@@ -15,3 +15,12 @@
   background-color: $success;
   pointer-events: none;
 }
+
+.all-set {
+  color: $success;
+}
+
+.pick-text {
+  color: $pick-color;
+  text-decoration: underline;
+}
