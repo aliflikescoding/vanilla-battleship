@@ -292,5 +292,9 @@ pickGrids.forEach((grid) => {
 botGrids.forEach((grid) => {
   grid.addEventListener("click", () => {
     grid.classList.add("attacked");
+    const gridClass = grid.classList[1];
+    const y = parseInt(gridClass[9]);
+    const x = parseInt(gridClass[10]);
+    
   });
 });
