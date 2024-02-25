@@ -17,6 +17,10 @@ const shipTypeText = document.querySelector("#shipTypeText");
 //grids
 const pickGrids = document.querySelectorAll(".pick-box");
 
+//pick area
+const blackBackground = document.querySelector(".black-background");
+const pickArea = document.querySelector(".pick-area");
+
 const playerBoard = new GameBoard();
 let count = 0;
 
@@ -48,6 +52,16 @@ function shipTypeTextChange() {
 buttonStartGame.addEventListener("click", () => {
   const errorText = document.querySelector("#error-text");
   if (count > 4) {
+    blackBackground.classList.add("hidden");
+    pickArea.classList.add("hidden");
+    const playerArray = playerBoard.getShipArray();
+    playerArray.forEach((shipPair) => {
+      shipPair[1].forEach(coords => {
+        const x = coords[0];
+        const y = coords[1];
+        document.querySelector(`.player-box + .grid-box-${y}${x}`).classList.add("ship-color");
+      })
+    });
   } else {
     let stringVar;
     if (count > 1) {
