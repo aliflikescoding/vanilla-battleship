@@ -12,6 +12,7 @@ const buttonUndo = document.querySelector("#buttonUndo");
 // pick error boat text
 const boatTypeText = document.querySelector("#boatTypeText");
 const shipPlacementText = document.querySelector("#shipPlacementText");
+const shipTypeText = document.querySelector("#shipTypeText");
 
 //grids
 const pickGrids = document.querySelectorAll(".pick-box");
@@ -20,19 +21,27 @@ const playerBoard = new GameBoard();
 let count = 0;
 
 function shipTypeTextChange() {
-  if (count == 0) {
-    boatTypeText.textContent = "Carrier";
-  } else if (count == 1) {
-    boatTypeText.textContent = "Battleship";
-  } else if (count == 2) {
-    boatTypeText.textContent = "Destroyer";
-  } else if (count == 3) {
-    boatTypeText.textContent = "Submarine";
-  } else if (count == 4) {
-    boatTypeText.textContent = "Patrol Boat";
+  if (count <= 4) {
+    shipPlacementText.classList.add("hidden");
+    if (count == 0) {
+      shipTypeText.classList.remove("hidden");
+      boatTypeText.textContent = "Carrier";
+    } else if (count == 1) {
+      shipTypeText.classList.remove("hidden");
+      boatTypeText.textContent = "Battleship";
+    } else if (count == 2) {
+      shipTypeText.classList.remove("hidden");
+      boatTypeText.textContent = "Destroyer";
+    } else if (count == 3) {
+      shipTypeText.classList.remove("hidden");
+      boatTypeText.textContent = "Submarine";
+    } else if (count == 4) {
+      shipTypeText.classList.remove("hidden");
+      boatTypeText.textContent = "Patrol Boat";
+    }
   } else {
-    shipPlacementText.textContent = "Thats it your all set to start the game!";
-    shipPlacementText.classList.add("all-set");
+    shipPlacementText.classList.remove("hidden");
+    shipTypeText.classList.add("hidden");
   }
 }
 
