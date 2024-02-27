@@ -14,6 +14,10 @@ function  Bot() {
   ];
 }
 
+Bot.prototype.getGrid = function () {
+  return this.grid;
+}
+
 Bot.prototype.getRandomNumber = function () {
   return Math.floor(Math.random() * 6) + 1;
 }
