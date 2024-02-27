@@ -26,6 +26,10 @@ Bot.prototype.setGrid = function (newGrid) {
   this.grid = newGrid;
 }
 
+Bot.prototype.incrementType = function () {
+  this.type += 1;
+}
+
 Bot.prototype.getRandomNumber = function () {
   return Math.floor(Math.random() * 6) + 1;
 }
