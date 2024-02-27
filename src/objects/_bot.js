@@ -38,19 +38,14 @@ Bot.prototype.getRotateStatus = function () {
   return Math.floor(Math.random() * 2);
 }
 
-Bot.prototype.reserveSpot = function (rotateStatus, x, y) {
+Bot.prototype.reserveSpot = function (rotateStatus, type, x, y) {
   const grid = this.getGrid();
   if (rotateStatus == 0) {
-    if (rotateStatus === 0 || rotateStatus === 1) {
+    if (type === 0 || type === 1) {
       for (let i = 0; i < 4; i++) {
         grid[y][x+i] = 1;
       }
-    } else if (rotateStatus === 2 || rotateStatus === 3) {
-      for (let i = 0; i < 3; i++) {
-        grid[y][x+i] = 1;
-      }
-    }
-    else if (rotateStatus === 2 || rotateStatus === 3) {
+    } else if (type === 2 || type === 3) {
       for (let i = 0; i < 3; i++) {
         grid[y][x+i] = 1;
       }
@@ -61,16 +56,11 @@ Bot.prototype.reserveSpot = function (rotateStatus, x, y) {
     }
   }
   else {
-    if (rotateStatus === 0 || rotateStatus === 1) {
+    if (type === 0 || type === 1) {
       for (let i = 0; i < 4; i++) {
         grid[y+i][x] = 1;
       }
-    } else if (rotateStatus === 2 || rotateStatus === 3) {
-      for (let i = 0; i < 3; i++) {
-        grid[y+i][x] = 1;
-      }
-    }
-    else if (rotateStatus === 2 || rotateStatus === 3) {
+    } else if (type === 2 || type === 3) {
       for (let i = 0; i < 3; i++) {
         grid[y+i][x] = 1;
       }
