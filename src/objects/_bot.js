@@ -22,6 +22,10 @@ Bot.prototype.getType = function () {
   return this.type;
 }
 
+Bot.prototype.setGrid = function (newGrid) {
+  this.grid = newGrid;
+}
+
 Bot.prototype.getRandomNumber = function () {
   return Math.floor(Math.random() * 6) + 1;
 }
