@@ -73,6 +73,54 @@ Bot.prototype.reserveSpot = function (rotateStatus, type, x, y) {
   this.setGrid(grid);
 }
 
+Bot.prototype.checkSpot = function (rotateStatus, type, x, y) {
+  const grid = this.getGrid();
+  let status = true;
+  if (rotateStatus == 0) {
+    if (type === 0 || type === 1) {
+      for (let i = 0; i < 4; i++) {
+        if (grid[y][x+i] === 1) {
+          status = false;
+        }
+      }
+    } else if (type === 2 || type === 3) {
+      for (let i = 0; i < 3; i++) {
+        if (grid[y][x+i] === 1) {
+          status = false;
+        }
+      }
+    } else {
+      for (let i = 0; i < 2; i++) {
+        if (grid[y][x+i] === 1) {
+          status = false;
+        }
+      }
+    }
+  }
+  else {
+    if (type === 0 || type === 1) {
+      for (let i = 0; i < 4; i++) {
+        if (grid[y+i][x] === 1) {
+          status = false;
+        }
+      }
+    } else if (type === 2 || type === 3) {
+      for (let i = 0; i < 3; i++) {
+        if (grid[y+i][x] === 1) {
+          status = false;
+        }
+      }
+    } else {
+      for (let i = 0; i < 2; i++) {
+        if (grid[y+i][x] === 1) {
+          status = false;
+        }
+      }
+    }
+  }
+  return status;
+}
+
 Bot.prototype.getSpots = function () {
   let arr = [];
   const rotateStatus = this.getRotateStatus();
