@@ -124,7 +124,7 @@ Bot.prototype.getSpot = function (rttstatus) {
   const y = this.getRandomNumber();
   const type = this.getType();
   if (this.checkSpot(rttstatus, type, x, y) === true) {
-    return [x, y, rttstatus];
+    return [x, y, rttstatus, type];
   } else {
     return this.getSpot(rttstatus);
   }
