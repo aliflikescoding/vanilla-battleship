@@ -1,5 +1,6 @@
 const pick = require("./_pick");
 const GameBoard = require("./../objects/_gameBoard");
+const Bot = require("../objects/_bot");
 const Ship_2 = require("../objects/_ship_2");
 const Ship_3 = require("../objects/_ship_3");
 const Ship_4 = require("../objects/_ship_4");
