@@ -121,6 +121,22 @@ Bot.prototype.checkSpot = function (rotateStatus, type, x, y) {
   return status;
 }
 
+Bot.prototype.getSpot = function () {
+  const x = this.getRandomNumber();
+  const y = this.getRandomNumber();
+  const rotateStatus = this.getRotateStatus();
+  const type = this.getType();
+  let arr = [];
+  if (this.checkSpot(rotateStatus, type, x, y) === true) {
+    arr.push(x);
+    arr.push(y);
+    return arr;
+  }
+  else {
+    this.getSpot();
+  }
+}
+
 Bot.prototype.getSpots = function () {
   let arr = [];
   const rotateStatus = this.getRotateStatus();
