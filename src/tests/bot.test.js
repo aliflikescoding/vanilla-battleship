@@ -1,4 +1,3 @@
-const { experiments } = require("webpack");
 const Bot = require("../objects/_bot");
 
 test("reserving spots 1", () => {
