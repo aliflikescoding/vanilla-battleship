@@ -18,4 +18,9 @@ Bot.prototype.getRandomNumber = function () {
   return Math.floor(Math.random() * 6) + 1;
 }
 
+Bot.prototype.getSpots = function () {
+  let arr = [];
+  
+}
+
 module.exports = Bot
