@@ -15,4 +15,9 @@
 .attacked {
   background-color: $danger;
   pointer-events: none;
+
+  &-ship {
+    background-color: $attacked;
+    pointer-events: none;
+  }
 }
