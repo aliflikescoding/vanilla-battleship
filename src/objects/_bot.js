@@ -80,6 +80,7 @@ Bot.prototype.reserveSpot = function (rotateStatus, x, y) {
       }
     }
   }
+  this.setGrid(grid);
 }
 
 Bot.prototype.getSpots = function () {
