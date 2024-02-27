@@ -40,22 +40,44 @@ Bot.prototype.getRotateStatus = function () {
 
 Bot.prototype.reserveSpot = function (rotateStatus, x, y) {
   const grid = this.getGrid();
-  if (rotateStatus === 0 || rotateStatus === 1) {
-    for (let i = 0; i < 4; i++) {
-      grid[y][x] = 1;
+  if (rotateStatus == 0) {
+    if (rotateStatus === 0 || rotateStatus === 1) {
+      for (let i = 0; i < 4; i++) {
+        grid[y][x+i] = 1;
+      }
+    } else if (rotateStatus === 2 || rotateStatus === 3) {
+      for (let i = 0; i < 3; i++) {
+        grid[y][x+i] = 1;
+      }
     }
-  } else if (rotateStatus === 2 || rotateStatus === 3) {
-    for (let i = 0; i < 3; i++) {
-      grid[y][x] = 1;
+    else if (rotateStatus === 2 || rotateStatus === 3) {
+      for (let i = 0; i < 3; i++) {
+        grid[y][x+i] = 1;
+      }
+    } else {
+      for (let i = 0; i < 2; i++) {
+        grid[y][x+i] = 1;
+      }
     }
   }
-  else if (rotateStatus === 2 || rotateStatus === 3) {
-    for (let i = 0; i < 3; i++) {
-      grid[y][x] = 1;
+  else {
+    if (rotateStatus === 0 || rotateStatus === 1) {
+      for (let i = 0; i < 4; i++) {
+        grid[y+i][x] = 1;
+      }
+    } else if (rotateStatus === 2 || rotateStatus === 3) {
+      for (let i = 0; i < 3; i++) {
+        grid[y+i][x] = 1;
+      }
     }
-  } else {
-    for (let i = 0; i < 2; i++) {
-      grid[y][x] = 1;
+    else if (rotateStatus === 2 || rotateStatus === 3) {
+      for (let i = 0; i < 3; i++) {
+        grid[y+i][x] = 1;
+      }
+    } else {
+      for (let i = 0; i < 2; i++) {
+        grid[y+i][x] = 1;
+      }
     }
   }
 }
