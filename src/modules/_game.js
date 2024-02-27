@@ -27,6 +27,26 @@ const playerBoard = new GameBoard();
 const botBoard = new GameBoard();
 let count = 0;
 
+const bot = new Bot();
+const botPositionArray = bot.getSpots();
+botPositionArray.forEach((position) => {
+  const x = position[0];
+  const y = position[1];
+  const rotateStatus = position[2];
+  const shipType = pick.type(position[3]);
+  let rotNum;
+  if (botBoard.getRotate() == false) {
+    rotNum = 0;
+  }
+  else {
+    rotNum = 1;
+  }
+  if (rotNum !== rotateStatus) {
+    botBoard.rotateShipPosition();
+  }
+  botBoard.placeShip(x, y, shipType);
+});
+
 function shipTypeTextChange() {
   if (count <= 4) {
     shipPlacementText.classList.add("hidden");
@@ -297,6 +317,5 @@ botGrids.forEach((grid) => {
     const gridClass = grid.classList[1];
     const y = parseInt(gridClass[9]);
     const x = parseInt(gridClass[10]);
-    
   });
 });
