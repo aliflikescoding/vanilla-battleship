@@ -24,7 +24,7 @@ Bot.prototype.getRotateStatus = function () {
 
 Bot.prototype.getSpots = function () {
   let arr = [];
-  
+  const rotateStatus = this.getRotateStatus();
 }
 
 module.exports = Bot
