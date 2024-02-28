@@ -23,6 +23,9 @@ const botGrids = document.querySelectorAll(".bot-box");
 const blackBackground = document.querySelector(".black-background");
 const pickArea = document.querySelector(".pick-area");
 
+//game area
+const gameText = document.querySelector("#gameText");
+
 const playerBoard = new GameBoard();
 const botBoard = new GameBoard();
 let count = 0;
