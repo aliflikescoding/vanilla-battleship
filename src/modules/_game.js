@@ -142,6 +142,10 @@ buttonRotate.addEventListener("click", () => {
   playerBoard.rotateShipPosition();
 });
 
+winButtonReset.addEventListener("click", () => {
+  window.location.reload();
+});
+
 buttonUndo.addEventListener("click", () => {
   const errorText = document.querySelector("#error-text");
   if (playerBoard.getShipArray().length > 0) {
