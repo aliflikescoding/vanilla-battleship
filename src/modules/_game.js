@@ -40,8 +40,7 @@ botPositionArray.forEach((position) => {
   let rotNum;
   if (botBoard.getRotate() == false) {
     rotNum = 0;
-  }
-  else {
+  } else {
     rotNum = 1;
   }
   if (rotNum !== rotateStatus) {
@@ -75,23 +74,18 @@ function shipTypeTextChange() {
   }
 }
 
-function changeGameText (condition) {
+function changeGameText(condition) {
   if (condition === 1) {
     gameText.textContent = "It is the Player's turn";
-  }
-  else if (condition === 2) {
+  } else if (condition === 2) {
     gameText.textContent = "The Player missed...";
-  }
-  else if (condition === 3) {
+  } else if (condition === 3) {
     gameText.textContent = "It's a hit! the player has hit a ship!";
-  }
-  else if (condition === 4) {
+  } else if (condition === 4) {
     gameText.textContent = "It is the Bot's turn";
-  }
-  else if (condition === 5) {
+  } else if (condition === 5) {
     gameText.textContent = "The Bot missed yay!";
-  }
-  else if (condition === 6) {
+  } else if (condition === 6) {
     gameText.textContent = "Oh no, It's a hit! the Bot has hit a ship!";
   }
 }
@@ -344,9 +338,18 @@ botGrids.forEach((grid) => {
     const x = parseInt(gridClass[10]);
     if (botArray[y][x] === 1) {
       grid.classList.add("attacked-ship");
+      setTimeout(() => {
+        changeGameText(3);
+      }, 500);
     } else {
       grid.classList.add("attacked");
+      setTimeout(() => {
+        changeGameText(2);
+      }, 500);
     }
     botBoard.receiveAttack(x, y);
+    setTimeout(() => {
+      changeGameText(4);
+    }, 1000);
   });
 });
