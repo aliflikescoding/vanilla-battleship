@@ -357,9 +357,10 @@ botGrids.forEach((grid) => {
       const y = ranPos[0][0];
       const x = ranPos[0][1];
       const playerDomGrid = document.querySelector(`.player-box + .grid-box-${y}${x}`);
-      playerBoard.receiveAttack(x, y);
       const playerGrid = playerBoard.getGrid();
-      if (playerGrid[y][x] === 1) {
+      console.log(playerGrid[y][x]);
+      console.log(playerGrid);
+      if (playerGrid[y][x] == 1) {
         playerDomGrid.classList.add("attacked-ship");
         setTimeout(() => {
           changeGameText(6);
@@ -371,6 +372,7 @@ botGrids.forEach((grid) => {
           changeGameText(5);
         }, 700);
       }
+      playerBoard.receiveAttack(x, y);
       setTimeout(() => {
         changeGameText(1);
       }, 1300);
