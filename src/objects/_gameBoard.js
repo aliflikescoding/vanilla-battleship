@@ -17,7 +17,6 @@ function GameBoard() {
   ];
   this.rotate = false;
   this.shipArray = [];
-  this.shipNumber = this.shipArray.length;
 }
 
 // getters
@@ -33,17 +32,9 @@ GameBoard.prototype.getShipArray = function () {
   return this.shipArray;
 };
 
-GameBoard.prototype.getShipNumber = function () {
-  return this.shipNumber;
-};
-
 // setters
 GameBoard.prototype.setGrid = function (grid) {
   return (this.grid = grid);
-};
-
-GameBoard.prototype.setShipNumber = function (shipNumber) {
-  return (this.shipNumber = shipNumber);
 };
 
 GameBoard.prototype.rotateShipPosition = function () {
@@ -159,7 +150,7 @@ GameBoard.prototype.getPositionShipIfHit = function (
   Xcoordinates,
   Ycoordinates
 ) {
-  shipArray = this.getShipArray();
+  let shipArray = this.getShipArray();
   let shipIndex;
   shipArray.forEach((shipPair, index) => {
     let shipCords = shipPair[1];
