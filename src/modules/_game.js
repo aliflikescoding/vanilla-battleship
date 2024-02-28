@@ -98,6 +98,17 @@ function changeGameText(condition) {
   }
 }
 
+function showWinner(condition) {
+  blackBackground.classList.remove("hidden");
+  winArea.classList.remove("hidden");
+  if (condition === 1) {
+    winText.textContent = "PLAYER WON CONGRATULATIONS!!!";
+  }
+  else if (condition === 0) {
+    winText.textContent = "Aw man, BOT won...Better luck next time!";
+  }
+}
+
 buttonStartGame.addEventListener("click", () => {
   const errorText = document.querySelector("#error-text");
   if (count > 4) {
