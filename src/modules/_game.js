@@ -332,7 +332,7 @@ pickGrids.forEach((grid) => {
     }
   });
 });
-_bot
+
 botGrids.forEach((grid) => {
   grid.addEventListener("click", () => {
     const botArray = botBoard.getGrid();
@@ -354,8 +354,8 @@ botGrids.forEach((grid) => {
     setTimeout(() => {
       changeGameText(4);
       const ranPos = gameBot.generateRandomPosition();
-      const y = ranPos[0];
-      const x = ranPos[1];
+      const y = ranPos[0][0];
+      const x = ranPos[0][1];
     }, 1000);
   });
 });
