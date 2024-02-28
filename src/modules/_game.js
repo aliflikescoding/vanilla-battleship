@@ -343,12 +343,12 @@ botGrids.forEach((grid) => {
       grid.classList.add("attacked-ship");
       setTimeout(() => {
         changeGameText(3);
-      }, 500);
+      }, 1000);
     } else {
       grid.classList.add("attacked");
       setTimeout(() => {
         changeGameText(2);
-      }, 500);
+      }, 1000);
     }
     botBoard.receiveAttack(x, y);
     setTimeout(() => {
@@ -356,7 +356,24 @@ botGrids.forEach((grid) => {
       const ranPos = gameBot.generateRandomPosition();
       const y = ranPos[0][0];
       const x = ranPos[0][1];
-      const grid = document.querySelector(`.player-box + .grid-box-${y}${x}`);
-    }, 1000);
+      const playerDomGrid = document.querySelector(`.player-box + .grid-box-${y}${x}`);
+      playerBoard.receiveAttack(x, y);
+      const playerGrid = playerBoard.getGrid();
+      if (playerGrid[y][x] === 1) {
+        playerDomGrid.classList.add("attacked-ship");
+        setTimeout(() => {
+          changeGameText(6);
+        }, 700);
+      }
+      else {
+        playerDomGrid.classList.add("attacked");
+        setTimeout(() => {
+          changeGameText(5);
+        }, 700);
+      }
+      setTimeout(() => {
+        changeGameText(1);
+      }, 1300);
+    }, 2000);
   });
 });
