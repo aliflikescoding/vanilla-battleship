@@ -77,7 +77,22 @@ function shipTypeTextChange() {
 
 function changeGameText (condition) {
   if (condition === 1) {
-    gameText.textContent = "It is the Player turn"
+    gameText.textContent = "It is the Player's turn";
+  }
+  else if (condition === 2) {
+    gameText.textContent = "The Player missed...";
+  }
+  else if (condition === 3) {
+    gameText.textContent = "It's a hit! the player has hit a ship!";
+  }
+  else if (condition === 4) {
+    gameText.textContent = "It is the Bot's turn";
+  }
+  else if (condition === 5) {
+    gameText.textContent = "The Bot missed yay!";
+  }
+  else if (condition === 6) {
+    gameText.textContent = "Oh no, It's a hit! the Bot has hit a ship!";
   }
 }
 
@@ -96,6 +111,7 @@ buttonStartGame.addEventListener("click", () => {
           .classList.add("ship-color");
       });
     });
+    changeGameText(1);
   } else {
     let stringVar;
     if (count > 1) {
