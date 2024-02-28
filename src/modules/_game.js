@@ -1,6 +1,7 @@
 const pick = require("./_pick");
 const GameBoard = require("./../objects/_gameBoard");
 const Bot = require("../objects/_bot");
+const GameBot = require("../objects/_gameBot");
 const Ship_2 = require("../objects/_ship_2");
 const Ship_3 = require("../objects/_ship_3");
 const Ship_4 = require("../objects/_ship_4");
@@ -26,6 +27,7 @@ const pickArea = document.querySelector(".pick-area");
 //game area
 const gameText = document.querySelector("#gameText");
 
+// game logic area
 const playerBoard = new GameBoard();
 const botBoard = new GameBoard();
 let count = 0;
@@ -48,6 +50,7 @@ botPositionArray.forEach((position) => {
   }
   botBoard.placeShip(x, y, shipType);
 });
+const gameBot = new GameBot();
 
 function shipTypeTextChange() {
   if (count <= 4) {
@@ -350,6 +353,7 @@ botGrids.forEach((grid) => {
     botBoard.receiveAttack(x, y);
     setTimeout(() => {
       changeGameText(4);
+
     }, 1000);
   });
 });
