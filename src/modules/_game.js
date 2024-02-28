@@ -75,6 +75,12 @@ function shipTypeTextChange() {
   }
 }
 
+function changeGameText (condition) {
+  if (condition === 1) {
+    gameText.textContent = "It is the Player turn"
+  }
+}
+
 buttonStartGame.addEventListener("click", () => {
   const errorText = document.querySelector("#error-text");
   if (count > 4) {
