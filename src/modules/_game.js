@@ -364,18 +364,18 @@ botGrids.forEach((grid) => {
         playerDomGrid.classList.add("attacked-ship");
         setTimeout(() => {
           changeGameText(6);
-        }, 700);
+        }, 1000);
       }
       else {
         playerDomGrid.classList.add("attacked");
         setTimeout(() => {
           changeGameText(5);
-        }, 700);
+        }, 1000);
       }
       playerBoard.receiveAttack(x, y);
       setTimeout(() => {
         changeGameText(1);
-      }, 1300);
+      }, 2000);
     }, 2000);
   });
 });
