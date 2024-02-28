@@ -13,4 +13,8 @@ function GameBot() {
   ]
 }
 
+GameBot.prototype.getLength = function () {
+  return this.positions.length;
+}
+
 module.exports = GameBot;
