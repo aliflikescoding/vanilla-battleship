@@ -17,4 +17,9 @@ GameBot.prototype.getLength = function () {
   return this.positions.length;
 }
 
+GameBot.prototype.generateRandomPosition = function () {
+  const pos = Math.floor(Math.random() * this.getLength());
+  return this.positions.pop();
+}
+
 module.exports = GameBot;
