@@ -356,6 +356,7 @@ botGrids.forEach((grid) => {
       const ranPos = gameBot.generateRandomPosition();
       const y = ranPos[0][0];
       const x = ranPos[0][1];
+      const grid = document.querySelector(`.player-box + .grid-box-${y}${x}`);
     }, 1000);
   });
 });
