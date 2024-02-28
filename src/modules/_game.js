@@ -32,6 +32,11 @@ const playerBoard = new GameBoard();
 const botBoard = new GameBoard();
 let count = 0;
 
+// win area
+const winArea = document.querySelector(".win-area");
+const winText = document.querySelector("#winText");
+const winButtonReset = document.querySelector("#winButtonReset");
+
 const bot = new Bot();
 const botPositionArray = bot.getSpots();
 botPositionArray.forEach((position) => {
