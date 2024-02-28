@@ -13,6 +13,10 @@ function GameBot() {
   ]
 }
 
+GameBot.prototype.getPositions = function () {
+  return this.positions;
+}
+
 GameBot.prototype.getLength = function () {
   return this.positions.length;
 }
