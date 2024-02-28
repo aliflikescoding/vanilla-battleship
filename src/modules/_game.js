@@ -103,8 +103,7 @@ function showWinner(condition) {
   winArea.classList.remove("hidden");
   if (condition === 1) {
     winText.textContent = "PLAYER WON CONGRATULATIONS!!!";
-  }
-  else if (condition === 0) {
+  } else if (condition === 0) {
     winText.textContent = "Aw man, BOT won...Better luck next time!";
   }
 }
@@ -369,29 +368,36 @@ botGrids.forEach((grid) => {
     botBoard.receiveAttack(x, y);
     setTimeout(() => {
       changeGameText(4);
-      const ranPos = gameBot.generateRandomPosition();
-      const y = ranPos[0][0];
-      const x = ranPos[0][1];
-      const playerDomGrid = document.querySelector(`.player-box + .grid-box-${y}${x}`);
-      const playerGrid = playerBoard.getGrid();
-      console.log(playerGrid[y][x]);
-      console.log(playerGrid);
-      if (playerGrid[y][x] == 1) {
-        playerDomGrid.classList.add("attacked-ship");
-        setTimeout(() => {
-          changeGameText(6);
-        }, 1000);
-      }
-      else {
-        playerDomGrid.classList.add("attacked");
-        setTimeout(() => {
-          changeGameText(5);
-        }, 1000);
-      }
-      playerBoard.receiveAttack(x, y);
-      setTimeout(() => {
-        changeGameText(1);
-      }, 2000);
     }, 2000);
+    const ranPos = gameBot.generateRandomPosition();
+    const yBot = ranPos[0][0];
+    const xBot = ranPos[0][1];
+    const playerDomGrid = document.querySelector(
+      `.player-box + .grid-box-${yBot}${xBot}`
+    );
+    const playerGrid = playerBoard.getGrid();
+    if (playerGrid[yBot][xBot] == 1) {
+      playerDomGrid.classList.add("attacked-ship");
+      setTimeout(() => {
+        changeGameText(6);
+      }, 1000);
+    } else {
+      playerDomGrid.classList.add("attacked");
+      setTimeout(() => {
+        changeGameText(5);
+      }, 1000);
+    }
+    playerBoard.receiveAttack(xBot, yBot);
+    setTimeout(() => {
+      changeGameText(1);
+    }, 2000);
+    console.log(playerBoard.getShipArray());
+    console.log(botBoard.getShipArray());
+    if (playerBoard.getShipArray().length === 0) {
+      showWinner(0);
+    }
+    if (botBoard.getShipArray().length === 0) {
+      showWinner(1);
+    }
   });
 });
